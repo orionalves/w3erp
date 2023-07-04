@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color, fonts } from '../../styles/constants'
+import { color, fonts } from '@styles/constants'
 
 export const NavbarStyled = styled.nav`
   display: flex;
