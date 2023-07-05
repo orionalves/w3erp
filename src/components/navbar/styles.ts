@@ -8,16 +8,22 @@ export const NavbarStyled = styled.nav`
   gap: 1rem;
   background-color: ${color.primary};
 `
-
+export const ContentMenu = styled.div`
+  padding: 0.5rem;
+`
 export const Menu = styled(Link)`
   text-decoration: none;
+  height: 3.5rem;
   display: flex;
   align-items: center;
-  height: 3.5rem;
-  padding-left: 1.5rem;
+  padding-left: 1rem;
   gap: 1.4rem;
   font-family: ${fonts.poppins};
   font-size: 1rem;
   letter-spacing: 0.2px;
   color: ${color.white};
+  &.current {
+    background-color: rgba(118, 130, 193, 0.3);
+    border-radius: 8px;
+  }
 `

@@ -1,11 +1,11 @@
-import { NavbarStyled, Menu } from './styles'
+import { NavbarStyled, Menu, ContentMenu } from './styles'
 import icons from '@icons/index'
 import { useLocation } from 'react-router-dom'
 
 const menu = [
-  { icon: icons.chartLine, page: 'home', name: 'Dashboard' },
-  { icon: icons.facialCleanser, page: 'predictions', name: 'Predições' },
-  { icon: icons.pieTwo, page: 'products', name: 'Produtos' }
+  { icon: icons.pieTwo, page: 'home', name: 'Dashboard' },
+  { icon: icons.chartLine, page: 'predictions', name: 'Predições' },
+  { icon: icons.facialCleanser, page: 'products', name: 'Produtos' }
 ]
 
 const Navbar = () => {
@@ -13,14 +13,16 @@ const Navbar = () => {
   return (
     <NavbarStyled>
       {menu.map((value, index) => (
-        <Menu
-          to={'/' + value.page}
-          key={index}
-          className={location === '/' + value.page ? value.page : ''}
-        >
-          <img src={value.icon} alt={'Icone ' + value.name} />
-          <p>{value.name}</p>
-        </Menu>
+        <ContentMenu>
+          <Menu
+            to={'/' + value.page}
+            key={index}
+            className={location === '/' + value.page ? 'current' : ''}
+          >
+            <img src={value.icon} alt={'Icone ' + value.name} />
+            <p>{value.name}</p>
+          </Menu>
+        </ContentMenu>
       ))}
     </NavbarStyled>
   )

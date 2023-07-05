@@ -8,6 +8,8 @@ export default function ErrorPage(): React.JSX.Element {
       <h1>Oops!</h1>
       <p>Desculpe, Essa página não existe.</p>
       <p>
+        Clique no botão para voltar!
+        <button onClick={() => history.back()}>◀️</button>
         <i>
           {(error as { statusText?: string }).statusText ||
             (error as Error)?.message}
