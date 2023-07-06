@@ -13,7 +13,6 @@ export const ContainerStyled = styled.div`
   border-radius: 24px;
   color: ${color.white};
   font-family: ${fonts.poppins};
-  font-style: normal;
   letter-spacing: 0.2px;
   gap: 1rem;
   img {

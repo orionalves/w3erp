@@ -1,11 +1,11 @@
 import Sidebar from '@components/sidebar'
 import Header from '@components/header'
 
-const Home = () => (
+const Products = () => (
   <>
     <Header />
     <Sidebar />
   </>
 )
 
-export default Home
+export default Products
