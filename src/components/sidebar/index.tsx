@@ -1,10 +1,15 @@
-import Navbar from '../navbar'
-import { SidebarStyled } from './styles'
+import ContacUs from '@components/contact-us'
+import Navbar from '@components/navbar'
+import { SidebarStyled, LogoMenu } from './styles'
 
 const Sidebar = () => {
   return (
     <SidebarStyled>
-      <Navbar></Navbar>
+      <LogoMenu>
+        <img src="logo.svg" alt="Logo W3erp" />
+      </LogoMenu>
+      <Navbar />
+      <ContacUs />
     </SidebarStyled>
   )
 }
