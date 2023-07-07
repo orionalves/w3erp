@@ -10,5 +10,15 @@ export const HeaderStyled = styled.header`
   position: relative;
   background-color: ${color.white};
   height: 8rem;
-  width: 100vw;
+  width: 100%;
+  h3 {
+    font-family: ${fonts.sora};
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: ${color.grey900};
+  }
+  p {
+    font-family: ${fonts.poppins};
+    color: ${color.grey600};
+  }
 `
