@@ -20,7 +20,8 @@ export const color = {
   grey600: '#757575',
   grey700: '#616161',
   grey800: '#424242',
-  grey900: '#212121'
+  grey900: '#212121',
+  body: '#FCFCFC'
 }
 
 export const fonts = {

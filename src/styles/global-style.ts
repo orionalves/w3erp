@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0 auto;
-    background-color: ${color.white};
+    background-color: ${color.body};
   }
 
   html {

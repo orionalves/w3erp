@@ -13,10 +13,9 @@ const Navbar = () => {
   return (
     <NavbarStyled>
       {menu.map((value, index) => (
-        <ContentMenu>
+        <ContentMenu key={index}>
           <Menu
             to={'/' + value.page}
-            key={index}
             className={location === '/' + value.page ? 'current' : ''}
           >
             <img src={value.icon} alt={'Icone ' + value.name} />

@@ -1,16 +1,29 @@
-import { DashboardCardStyled } from './styles'
+import { DashboardCardStyled, TitleStyled, Numbers, Precent } from './styles'
 import DonutChart from '@components/donut'
 
-const DashboardCard = () => {
+const DashboardCard = ({
+  series,
+  productsCustomers,
+  lowHigh,
+  total,
+  percent
+}: DashboardCardType) => {
   return (
     <DashboardCardStyled>
-      <DonutChart series={80} />
       <div>
-        Total produtos em alta
-        <div style={{ display: 'flex', gap: '1rem' }}>
-          120
-          <div>13%</div>
-        </div>
+        <DonutChart series={series} />
+      </div>
+      <div>
+        <TitleStyled>
+          Total <span className="bold">{productsCustomers}</span> em {lowHigh}
+        </TitleStyled>
+        <Numbers>
+          <p>{total}</p>
+          <Precent className={lowHigh === 'alta' ? 'high' : 'low'}>
+            {lowHigh === 'alta' ? '+' : '-'}
+            {percent}%
+          </Precent>
+        </Numbers>
       </div>
     </DashboardCardStyled>
   )
