@@ -3,7 +3,7 @@ import { TableStyled } from './styles'
 
 type TableProps = {
   th: string[]
-  td: Record<string, string | number | ReactNode>[]
+  td: Record<string, ReactNode>[]
 }
 
 const Table = ({ th, td }: TableProps) => {
@@ -17,9 +17,8 @@ const Table = ({ th, td }: TableProps) => {
         </tr>
       </thead>
       <tbody>
-        {td.map((item, index) => (
-          <tr key={index}>
-            <td>{(index + 1).toString().padStart(3, '0')}</td>
+        {td.map((item, i) => (
+          <tr key={i}>
             {Object.values(item).map((value, index) => (
               <td key={index}>{value}</td>
             ))}

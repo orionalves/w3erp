@@ -21,7 +21,7 @@ export const DashboardHeader = styled.div`
     border-radius: 8px;
     padding: 0.5rem 0.8rem;
     background-color: ${color.white};
-    color: ${color.grey800};
+    color: ${color.gray800};
     font-family: ${fonts.poppins};
   }
 `

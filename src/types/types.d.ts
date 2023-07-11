@@ -5,3 +5,17 @@ type DashboardCardType = {
   total: number
   percent: number
 }
+
+type Products = {
+  id: string
+  product: string
+  percent: number
+  image: ReactNode
+}
+
+type Customers = {
+  id: string
+  customer: string
+  percent: number
+  image: ReactNode
+}

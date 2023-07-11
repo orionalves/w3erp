@@ -1,11 +1,10 @@
-import { ReactNode } from 'react'
 import { TableContainerStyled, TableContainerHeader, Title } from './styles'
 import Table from '@components/table'
 
 type TableContainerProps = {
   image: string
   th: string[]
-  td: Record<string, string | number | ReactNode>[]
+  td: Products[] | Customers[]
 }
 
 const TableContainer = ({ image, th, td }: TableContainerProps) => {

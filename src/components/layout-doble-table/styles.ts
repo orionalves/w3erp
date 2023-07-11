@@ -5,6 +5,6 @@ export const LayoutDoubleTableStyled = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-right: 17rem;
+  margin-left: 17rem;
   padding: 2rem;
 `
