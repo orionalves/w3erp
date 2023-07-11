@@ -15,10 +15,10 @@ export const HeaderStyled = styled.header`
     font-family: ${fonts.sora};
     font-size: 1.25rem;
     font-weight: 600;
-    color: ${color.grey900};
+    color: ${color.gray900};
   }
   p {
     font-family: ${fonts.poppins};
-    color: ${color.grey600};
+    color: ${color.gray600};
   }
 `

@@ -7,7 +7,6 @@ export const DashboardStyled = styled.div`
   border-radius: 24px;
   margin: 2rem;
   margin-left: calc(17rem + 2rem);
-  overflow: hidden;
 `
 
 export const DashboardHeader = styled.div`
@@ -32,4 +31,16 @@ export const DashboardCardContainer = styled.div`
   justify-content: space-between;
   gap: 1rem;
   margin-top: 2.5rem;
+  overflow-x: auto;
+  &::-webkit-scrollbar {
+    margin-top: 0.5rem;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
 `

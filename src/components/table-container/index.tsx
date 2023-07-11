@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
-import { TableContainerStyled, TableContainerHeader } from './styles'
+import { TableContainerStyled, TableContainerHeader, Title } from './styles'
+import Table from '@components/table'
 
 type TableContainerProps = {
   image: string
@@ -11,34 +12,16 @@ const TableContainer = ({ image, th, td }: TableContainerProps) => {
   return (
     <TableContainerStyled>
       <TableContainerHeader>
-        <div>
+        <Title>
           <img src={image} alt={image + 'image'} />
           <h2>Produtos</h2>
-        </div>
+        </Title>
         <div>
           <div>Em alta</div>
           <div>Em baixa</div>
         </div>
       </TableContainerHeader>
-      <table>
-        <thead>
-          <tr>
-            {th.map((value, index) => (
-              <th key={index}>{value}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {td.map((item, index) => (
-            <tr key={index}>
-              <td>{(index + 1).toString().padStart(3, '0')}</td>
-              {Object.values(item).map((value, index) => (
-                <td key={index}>{value}</td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <Table th={th} td={td} />
     </TableContainerStyled>
   )
 }

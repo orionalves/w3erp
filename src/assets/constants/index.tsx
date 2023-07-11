@@ -1,7 +1,7 @@
 /* eslint-disable max-lines */
 import right from '@icons/right.svg'
 
-export const dashboardTh = ['ID', 'Produto', 'Percentual']
+export const dashboardTh = ['ID', 'Produto', 'Percentual', '']
 export const products = [
   {
     product: 'Papel higiênico',
