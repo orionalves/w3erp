@@ -1,24 +1,47 @@
-import { TableContainerStyled, TableContainerHeader, Title } from './styles'
+import { useState } from 'react'
+import {
+  TableContainerStyled,
+  TableContainerHeader,
+  Title,
+  IconTitle,
+  UpDown
+} from './styles'
 import Table from '@components/table'
 
+type UpDownType = 'up' | 'down'
+
 type TableContainerProps = {
+  color: string
   image: string
   th: string[]
   td: Products[] | Customers[]
 }
 
-const TableContainer = ({ image, th, td }: TableContainerProps) => {
+const TableContainer = ({ color, image, th, td }: TableContainerProps) => {
+  const [classUpDown, setClassUpDown] = useState<UpDownType>('up')
   return (
     <TableContainerStyled>
       <TableContainerHeader>
         <Title>
-          <img src={image} alt={image + 'image'} />
+          <IconTitle color={color}>
+            <img src={image} alt={image + 'image'} />
+          </IconTitle>
           <h2>Produtos</h2>
         </Title>
-        <div>
-          <div>Em alta</div>
-          <div>Em baixa</div>
-        </div>
+        <UpDown>
+          <div
+            onClick={() => setClassUpDown('up')}
+            className={classUpDown === 'up' ? 'up' : ''}
+          >
+            Em alta
+          </div>
+          <div
+            onClick={() => setClassUpDown('down')}
+            className={classUpDown === 'down' ? 'down' : ''}
+          >
+            Em baixa
+          </div>
+        </UpDown>
       </TableContainerHeader>
       <Table th={th} td={td} />
     </TableContainerStyled>

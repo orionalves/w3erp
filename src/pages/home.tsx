@@ -3,8 +3,9 @@ import Header from '@components/header'
 import Dashboard from '@components/dashboard'
 import TableContainer from '@components/table-container'
 import LayoutDoubleTable from '@components/layout-doble-table'
-import facialCleanser from '@icons/facial-cleanser.svg'
+import facialCleanser from '@icons/facial-cleanser-blue.svg'
 import people from '@icons/every-user.svg'
+import { color } from '@styles/constants'
 import {
   productsTh,
   customersTh,
@@ -21,8 +22,18 @@ const Home = () => (
     <Sidebar />
     <Dashboard />
     <LayoutDoubleTable>
-      <TableContainer image={facialCleanser} th={productsTh} td={products} />
-      <TableContainer image={people} th={customersTh} td={customers} />
+      <TableContainer
+        color={color.primaryBlue4}
+        image={facialCleanser}
+        th={productsTh}
+        td={products}
+      />
+      <TableContainer
+        color={color.primary}
+        image={people}
+        th={customersTh}
+        td={customers}
+      />
     </LayoutDoubleTable>
   </>
 )
