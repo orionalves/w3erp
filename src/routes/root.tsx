@@ -1,10 +1,5 @@
-import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import Login from '@pages/login'
 
 export default function Root() {
-  const navigate = useNavigate()
-  useEffect(() => {
-    navigate('/home')
-  }, [navigate])
-  return null
+  return <Login />
 }

@@ -30,6 +30,7 @@
       "@styles/*": ["src/styles/*"],
       "@icons/*": ["src/assets/icons/*"],
       "@images/*": ["src/assets/images/*"],
+      "@@context/*": ["src/assets/context/*"],
     }
   },
   "include": ["src"],

@@ -1,3 +1,7 @@
+type ChildrenType = {
+  children: ReactNode
+}
+
 type DashboardCardType = {
   series: number
   productsCustomers: 'produtos' | 'clientes'
@@ -18,4 +22,9 @@ type Customers = {
   customer: string
   percent: number
   image: ReactNode
+}
+
+type LoginType = {
+  email: string
+  senha: string
 }

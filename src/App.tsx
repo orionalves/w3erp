@@ -1,13 +1,13 @@
 import { GlobalStyle } from './styles/global-style'
-import { RouterProvider } from 'react-router-dom'
-import router from './routes'
+import { LoginProvider } from '@context/login-context'
+import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
-    <>
+    <LoginProvider>
       <GlobalStyle />
-      <RouterProvider router={router} />
-    </>
+      <Outlet />
+    </LoginProvider>
   )
 }
 

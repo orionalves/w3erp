@@ -13,7 +13,8 @@ export default defineConfig({
       '@routes': resolve(__dirname, './src/routes'),
       '@styles': resolve(__dirname, './src/styles'),
       '@icons': resolve(__dirname, './src/assets/icons'),
-      '@images': resolve(__dirname, './src/assets/images')
+      '@images': resolve(__dirname, './src/assets/images'),
+      '@context': resolve(__dirname, './src/context')
     }
   }
 })
