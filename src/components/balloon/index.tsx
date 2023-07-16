@@ -1,8 +1,8 @@
+import { useContext } from 'react'
 import { BalloonStyled, Menu } from './styles'
 import setting from '@icons/setting.svg'
 import logout from '@icons/logout.svg'
 import { LoginContext } from '@context/login-context'
-import { useContext } from 'react'
 
 const Balloon = () => {
   const { setLocalStorageState } = useContext(LoginContext)

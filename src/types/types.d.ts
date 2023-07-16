@@ -28,3 +28,14 @@ type LoginType = {
   email: string
   senha: string
 }
+
+type TokenProps = {
+  token: string
+}
+
+type Me = {
+  email: string
+  id: number
+  nome: string
+  papel: string
+}

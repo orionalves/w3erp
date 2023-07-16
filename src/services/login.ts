@@ -2,8 +2,8 @@ import { isAxiosError } from 'axios'
 import api from './index'
 
 type LoginResponse = {
-  token: 'string'
-  type: 'string'
+  token: string
+  type: string
 }
 
 export const loginService = async ({ email, senha }: LoginType) => {
@@ -21,15 +21,16 @@ export const loginService = async ({ email, senha }: LoginType) => {
   }
 }
 
-// export const loginName = async ({ email }: Omit<LoginType, 'senha'>) => {
-//   try {
-//     const response = await api.get<CentralUsuario>('/central/usuario')
-//     const user = response.data.content[0].nome
+export const loginName = async ({ token }: TokenProps) => {
+  try {
+    api.defaults.headers.common['Authorization'] = `${
+      import.meta.env.VITE_AUTHORIZATION_TYPE
+    } ${token}`
 
-//     if (response.data.content[0].email === email) {
-//       return user
-//     }
-//   } catch (error) {
-//     if (isAxiosError(error)) return error.response?.data
-//   }
-// }
+    const response = await api.get<Me>('/central/usuario/me')
+
+    return response.data
+  } catch (error) {
+    if (isAxiosError(error)) return error.response?.data
+  }
+}

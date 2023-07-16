@@ -5,7 +5,7 @@ import { ThemeContext } from 'styled-components'
 type LoginContextType = {
   localStorageState: string | null
   setLocalStorageState: React.Dispatch<React.SetStateAction<string | null>>
-  navigate: (useNavigate: string) => void
+  navigate: (route: string) => void
 }
 
 const initialValue = {

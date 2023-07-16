@@ -12,30 +12,37 @@ import {
   products,
   customers
 } from '../assets/constants/index'
+import LayoutPage from '@components/layout-page'
+import { useContext } from 'react'
+import { LoginContext } from '@context/login-context'
 
 //useState para receber os produtos
 //useEfect para consultar a api
 //Verificar atributo
 const Home = () => {
+  const { localStorageState } = useContext(LoginContext)
+
   return (
     <>
-      <Header />
+      <Header token={localStorageState !== null ? localStorageState : ''} />
       <Sidebar />
-      <Dashboard />
-      <LayoutDoubleTable>
-        <TableContainer
-          color={color.primaryBlue4}
-          image={facialCleanser}
-          th={productsTh}
-          td={products}
-        />
-        <TableContainer
-          color={color.primary}
-          image={people}
-          th={customersTh}
-          td={customers}
-        />
-      </LayoutDoubleTable>
+      <LayoutPage>
+        <Dashboard />
+        <LayoutDoubleTable>
+          <TableContainer
+            color={color.primaryBlue4}
+            image={facialCleanser}
+            th={productsTh}
+            td={products}
+          />
+          <TableContainer
+            color={color.primary}
+            image={people}
+            th={customersTh}
+            td={customers}
+          />
+        </LayoutDoubleTable>
+      </LayoutPage>
     </>
   )
 }

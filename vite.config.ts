@@ -14,7 +14,8 @@ export default defineConfig({
       '@styles': resolve(__dirname, './src/styles'),
       '@icons': resolve(__dirname, './src/assets/icons'),
       '@images': resolve(__dirname, './src/assets/images'),
-      '@context': resolve(__dirname, './src/context')
+      '@context': resolve(__dirname, './src/context'),
+      '@services': resolve(__dirname, './src/services')
     }
   }
 })

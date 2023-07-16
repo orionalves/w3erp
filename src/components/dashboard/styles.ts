@@ -5,8 +5,6 @@ export const DashboardStyled = styled.div`
   padding: 2.5rem;
   background-color: ${color.primary};
   border-radius: 24px;
-  margin: 2rem;
-  margin-left: calc(17rem + 2rem);
 `
 
 export const DashboardHeader = styled.div`
