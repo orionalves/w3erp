@@ -7,6 +7,7 @@ import { useContext } from 'react'
 import { LoginContext } from '@context/login-context'
 import Search from '@components/search'
 import DivSearch from '@components/div-search'
+import PredictionsDiv from '@components/predictions'
 
 const Predictions = () => {
   const { localStorageState } = useContext(LoginContext)
@@ -19,7 +20,7 @@ const Predictions = () => {
         <DivSearch>
           <Search />
         </DivSearch>
-        <div></div>
+        <PredictionsDiv />
       </LayoutPage>
       <Sidebar />
     </>

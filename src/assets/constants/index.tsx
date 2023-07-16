@@ -8,7 +8,7 @@ export const products: Products[] = [
     id: '001',
     product: 'Papel higiênico',
     percent: 72,
-    image: <img src={right} alt="Seta para" />
+    image: <img src={right} alt="Seta para direita" />
   },
   {
     id: '002',
