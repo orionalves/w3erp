@@ -9,13 +9,13 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, './src'),
       '@components': resolve(__dirname, './src/components'),
-      '@pages': resolve(__dirname, './src/pages'),
-      '@routes': resolve(__dirname, './src/routes'),
-      '@styles': resolve(__dirname, './src/styles'),
+      '@context': resolve(__dirname, './src/context'),
       '@icons': resolve(__dirname, './src/assets/icons'),
       '@images': resolve(__dirname, './src/assets/images'),
-      '@context': resolve(__dirname, './src/context'),
-      '@services': resolve(__dirname, './src/services')
+      '@pages': resolve(__dirname, './src/pages'),
+      '@routes': resolve(__dirname, './src/routes'),
+      '@services': resolve(__dirname, './src/services'),
+      '@styles': resolve(__dirname, './src/styles')
     }
   }
 })

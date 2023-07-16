@@ -25,13 +25,13 @@
     "paths": {
       "@*": ["src/*"],
       "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@routes/*": ["src/routes/*"],
-      "@styles/*": ["src/styles/*"],
+      "@context/*": ["src/context/*"],
       "@icons/*": ["src/assets/icons/*"],
       "@images/*": ["src/assets/images/*"],
-      "@@context/*": ["src/assets/context/*"],
-      "@services/*": ["src/assets/services/*"]
+      "@pages/*": ["src/pages/*"],
+      "@routes/*": ["src/routes/*"],
+      "@services/*": ["src/services/*"],
+      "@styles/*": ["src/styles/*"],
     }
   },
   "include": ["src"],
