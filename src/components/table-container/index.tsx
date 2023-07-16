@@ -11,13 +11,20 @@ import Table from '@components/table'
 type UpDownType = 'up' | 'down'
 
 type TableContainerProps = {
+  title: string
   color: string
   image: string
   th: string[]
   td: Products[] | Customers[]
 }
 
-const TableContainer = ({ color, image, th, td }: TableContainerProps) => {
+const TableContainer = ({
+  title,
+  color,
+  image,
+  th,
+  td
+}: TableContainerProps) => {
   const [classUpDown, setClassUpDown] = useState<UpDownType>('up')
   return (
     <TableContainerStyled>
@@ -26,7 +33,7 @@ const TableContainer = ({ color, image, th, td }: TableContainerProps) => {
           <IconTitle color={color}>
             <img src={image} alt={image + 'image'} />
           </IconTitle>
-          <h2>Produtos</h2>
+          <h2>{title}</h2>
         </Title>
         <UpDown>
           <div

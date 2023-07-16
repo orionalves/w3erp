@@ -30,12 +30,14 @@ const Home = () => {
         <Dashboard />
         <LayoutDoubleTable>
           <TableContainer
+            title="Produtos"
             color={color.primaryBlue4}
             image={facialCleanser}
             th={productsTh}
             td={products}
           />
           <TableContainer
+            title="Clientes"
             color={color.primary}
             image={people}
             th={customersTh}
