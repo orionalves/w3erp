@@ -17,6 +17,13 @@ type Products = {
   image: ReactNode
 }
 
+type TableProductsPage = {
+  id: string
+  product: string
+  status: string
+  percent: number
+}
+
 type Customers = {
   id: string
   customer: string

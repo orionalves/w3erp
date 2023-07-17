@@ -2,6 +2,9 @@ import styled from 'styled-components'
 import { color, fonts } from '@styles/constants'
 
 export const CardsStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   padding: 1.5rem;
   background-color: ${color.white};
   border-radius: 24px;

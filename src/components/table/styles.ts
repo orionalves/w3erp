@@ -6,7 +6,6 @@ export const TableStyled = styled.table`
   font-size: 1rem;
   border-collapse: collapse;
   border-radius: 16px 16px 0px 0px;
-  margin-top: 2rem;
   overflow: hidden;
   tr {
     height: 3.5rem;

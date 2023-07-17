@@ -2,6 +2,9 @@ import styled from 'styled-components'
 import { color, fonts } from '@styles/constants'
 
 export const TableContainerStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   padding: 2rem;
   background-color: ${color.white};
   border-radius: 24px;
