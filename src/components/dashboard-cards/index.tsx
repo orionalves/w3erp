@@ -11,17 +11,17 @@ const DashboardCard = ({
   return (
     <DashboardCardStyled>
       <div>
-        <DonutChart series={series} />
+        <DonutChart series={series !== undefined ? series : 0} />
       </div>
       <div>
         <TitleStyled>
           Total <span className="bold">{productsCustomers}</span> em {lowHigh}
         </TitleStyled>
         <Numbers>
-          <p>{total}</p>
+          <p>{total !== undefined ? total : 0}</p>
           <Precent className={lowHigh === 'alta' ? 'high' : 'low'}>
-            {lowHigh === 'alta' ? '+' : '-'}
-            {percent}%
+            {lowHigh === 'alta' ? '+' : ''}
+            {percent !== undefined ? percent : 0}%
           </Precent>
         </Numbers>
       </div>

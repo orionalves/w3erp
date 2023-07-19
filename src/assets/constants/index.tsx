@@ -1,6 +1,21 @@
 /* eslint-disable max-lines */
 import right from '@icons/right.svg'
 
+export const dashboardCards: DashboardCardApi = {
+  percentualTotalProdutosAlta: 2,
+  percentualVariacaoProdutosAlta: 97,
+  quantidadeProdutosAlta: 49,
+  percentualTotalProdutosBaixa: 17,
+  percentualVariacaoProdutosBaixa: -75,
+  quantidadeProdutosBaixa: 313,
+  percentualTotalClientesAlta: 2,
+  percentualVariacaoClientesAlta: 105,
+  quantidadeClientesAlta: 61,
+  percentualTotalClientesBaixa: 8,
+  percentualVariacaoClientesBaixa: -76,
+  quantidadeClientesBaixa: 239
+}
+
 export const productsTh = ['ID', 'Produto', 'Percentual', '']
 export const customersTh = ['ID', 'Cliente', 'Percentual', '']
 export const products: Products[] = [

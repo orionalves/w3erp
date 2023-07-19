@@ -11,23 +11,48 @@ import {
   customersTh,
   products,
   customers
+  // dashboardCards
 } from '../assets/constants/index'
 import LayoutPage from '@components/layout-page'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '@context/login-context'
-
+// import { getProducts } from '@services/products'
+import { getDashboard } from '@services/dashboard'
+import { useNavigate } from 'react-router-dom'
 //useState para receber os produtos
 //useEfect para consultar a api
 //Verificar atributo
 const Home = () => {
+  const [dashboardCards, setDashboardCards] = useState<
+    Partial<DashboardCardApi>
+  >({})
   const { localStorageState } = useContext(LoginContext)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (!localStorageState) {
+      navigate('/login')
+      return
+    }
+    const fetchLoginName = async () => {
+      try {
+        const result = await getDashboard(localStorageState)
+        setDashboardCards(result)
+      } catch (event) {
+        if (event instanceof Error) {
+          window.alert(event.message)
+        }
+      }
+    }
+
+    fetchLoginName()
+  }, [localStorageState, navigate])
 
   return (
     <>
-      <Header token={localStorageState !== null ? localStorageState : ''} />
+      <Header token={localStorageState} />
       <Sidebar />
       <LayoutPage>
-        <Dashboard />
+        <Dashboard {...dashboardCards} />
         <LayoutDoubleTable>
           <TableContainer
             title="Produtos"

@@ -9,38 +9,37 @@ import calendar from '@icons/calendar.svg'
 import { color } from '@styles/constants'
 import DashboardCard from '@components/dashboard-cards'
 
-const dashboardCards: DashboardCardType[] = [
-  {
-    series: 80,
-    productsCustomers: 'produtos',
-    lowHigh: 'alta',
-    total: 120,
-    percent: 13
-  },
-  {
-    series: 20,
-    productsCustomers: 'produtos',
-    lowHigh: 'baixa',
-    total: 56,
-    percent: 29
-  },
-  {
-    series: 72,
-    productsCustomers: 'clientes',
-    lowHigh: 'alta',
-    total: 501,
-    percent: 25
-  },
-  {
-    series: 28,
-    productsCustomers: 'clientes',
-    lowHigh: 'baixa',
-    total: 103,
-    percent: 15
-  }
-]
-
-const Dashboard = () => {
+const Dashboard = (props: Partial<DashboardCardApi>) => {
+  const dashboardCards: DashboardCardType[] = [
+    {
+      series: props?.percentualTotalProdutosAlta,
+      productsCustomers: 'produtos',
+      lowHigh: 'alta',
+      total: props?.quantidadeProdutosAlta,
+      percent: props?.percentualVariacaoProdutosAlta
+    },
+    {
+      series: props?.percentualTotalProdutosBaixa,
+      productsCustomers: 'produtos',
+      lowHigh: 'baixa',
+      total: props?.quantidadeProdutosBaixa,
+      percent: props?.percentualVariacaoProdutosBaixa
+    },
+    {
+      series: props?.percentualTotalClientesAlta,
+      productsCustomers: 'clientes',
+      lowHigh: 'alta',
+      total: props?.quantidadeClientesAlta,
+      percent: props?.percentualVariacaoClientesAlta
+    },
+    {
+      series: props?.percentualTotalClientesBaixa,
+      productsCustomers: 'clientes',
+      lowHigh: 'baixa',
+      total: props?.quantidadeClientesBaixa,
+      percent: props?.percentualVariacaoClientesBaixa
+    }
+  ]
   return (
     <DashboardStyled>
       <DashboardHeader>
@@ -55,11 +54,11 @@ const Dashboard = () => {
         {dashboardCards.map((value, index) => (
           <DashboardCard
             key={index}
-            series={value.series}
+            series={value?.series}
             productsCustomers={value.productsCustomers}
             lowHigh={value.lowHigh}
-            total={value.total}
-            percent={value.percent}
+            total={value?.total}
+            percent={value?.percent}
           />
         ))}
       </DashboardCardContainer>

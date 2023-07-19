@@ -8,7 +8,6 @@ import { loginName } from '@services/login'
 const Header = ({ token }: TokenProps) => {
   const [balloon, setBalloon] = useState(false)
   const [data, setData] = useState<Me | null>(null)
-
   useEffect(() => {
     if (!token) {
       return
