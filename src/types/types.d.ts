@@ -25,23 +25,18 @@ type DashboardCardApi = {
   quantidadeProdutosBaixa: number
 }
 
+type UpDownType = 'EM_ALTA' | 'EM_BAIXA'
+
 type DashboardTableApiProps = {
   token: string
-  upDown: 'EM_ALTA' | 'EM_BAIXA'
+  upDown: UpDownType
 }
 
-type ProductsData = {
+type ProductsCustomersData = {
   id: number
   nome: string
   percentual: number
 }[]
-
-type Products = {
-  id: string
-  product: string
-  percent: number
-  image: ReactNode
-}
 
 type TableProductsPage = {
   id: string

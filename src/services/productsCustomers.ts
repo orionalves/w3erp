@@ -1,7 +1,11 @@
 import { isAxiosError } from 'axios'
 import api from './index'
 
-export const customers = async ({ token, upDown }: DashboardTableApiProps) => {
+export const getProductsCustomers = async (
+  token: string,
+  upDown: UpDownType,
+  route: 'clientes' | 'produtos'
+) => {
   try {
     api.defaults.headers.common['Authorization'] = `${
       import.meta.env.VITE_AUTHORIZATION_TYPE
@@ -10,7 +14,7 @@ export const customers = async ({ token, upDown }: DashboardTableApiProps) => {
       import.meta.env.VITE_X_TENANT_ID
     }`
     const response = await api.get(
-      '/app/dashboard/clientes?classificacao=' + upDown
+      `/app/dashboard/${route}?classificacao=${upDown}`
     )
 
     return response.data

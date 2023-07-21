@@ -7,7 +7,7 @@ import { useContext } from 'react'
 import { LoginContext } from '@context/login-context'
 import Search from '@components/search'
 import ContainerSearch from '@components/container-search'
-import PredictionsDiv from '@components/predictions'
+import PredictionsContainer from '@components/predictions'
 
 const Predictions = () => {
   const { localStorageState } = useContext(LoginContext)
@@ -20,7 +20,7 @@ const Predictions = () => {
         <ContainerSearch>
           <Search />
         </ContainerSearch>
-        <PredictionsDiv />
+        <PredictionsContainer />
       </LayoutPage>
       <Sidebar />
     </>

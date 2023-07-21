@@ -1,42 +1,48 @@
 import Sidebar from '@components/sidebar'
 import Header from '@components/header'
 import Dashboard from '@components/dashboard'
-import TableContainer from '@components/table-container'
 import LayoutDoubleTable from '@components/layout-double-table'
-import facialCleanser from '@icons/facial-cleanser-blue.svg'
-import people from '@icons/every-user.svg'
-import { color } from '@styles/constants'
-import {
-  productsTh,
-  customersTh,
-  products,
-  customers
-  // dashboardCards
-} from '../assets/constants/index'
 import LayoutPage from '@components/layout-page'
 import { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '@context/login-context'
-// import { getProducts } from '@services/products'
 import { getDashboard } from '@services/dashboard'
 import { useNavigate } from 'react-router-dom'
-//useState para receber os produtos
-//useEfect para consultar a api
-//Verificar atributo
+import TableDashboard from '@components/table-dashboard'
+import { getProductsCustomers } from '@services/productsCustomers'
+
 const Home = () => {
   const [dashboardCards, setDashboardCards] = useState<
     Partial<DashboardCardApi>
   >({})
+  const [products, setProducts] = useState<Partial<ProductsCustomersData>>([])
+  const [productsUpDown, setProductsUpDown] = useState<UpDownType>('EM_ALTA')
+  const [customers, setCustomers] = useState<Partial<ProductsCustomersData>>([])
+  const [customersUpDown, setCustomersUpDown] = useState<UpDownType>('EM_ALTA')
+
   const { localStorageState } = useContext(LoginContext)
+
   const navigate = useNavigate()
   useEffect(() => {
     if (!localStorageState) {
       navigate('/login')
       return
     }
-    const fetchLoginName = async () => {
+    const fetchApi = async () => {
       try {
-        const result = await getDashboard(localStorageState)
-        setDashboardCards(result)
+        const resultDashboard = await getDashboard(localStorageState)
+        const resultProducts = await getProductsCustomers(
+          localStorageState,
+          productsUpDown,
+          'produtos'
+        )
+        const resultCustomers = await getProductsCustomers(
+          localStorageState,
+          customersUpDown,
+          'clientes'
+        )
+        setProducts(resultProducts)
+        setCustomers(resultCustomers)
+        setDashboardCards(resultDashboard)
       } catch (event) {
         if (event instanceof Error) {
           window.alert(event.message)
@@ -44,9 +50,11 @@ const Home = () => {
       }
     }
 
-    fetchLoginName()
-  }, [localStorageState, navigate])
-
+    fetchApi()
+  }, [customersUpDown, localStorageState, navigate, productsUpDown])
+  // if(!dashboardCards){
+  //   return <> </>
+  // }
   return (
     <>
       <Header token={localStorageState} />
@@ -54,19 +62,17 @@ const Home = () => {
       <LayoutPage>
         <Dashboard {...dashboardCards} />
         <LayoutDoubleTable>
-          <TableContainer
+          <TableDashboard
             title="Produtos"
-            color={color.primaryBlue4}
-            image={facialCleanser}
-            th={productsTh}
-            td={products}
+            apiResult={products}
+            upDown={productsUpDown}
+            setUpDown={setProductsUpDown}
           />
-          <TableContainer
+          <TableDashboard
             title="Clientes"
-            color={color.primary}
-            image={people}
-            th={customersTh}
-            td={customers}
+            apiResult={customers}
+            upDown={customersUpDown}
+            setUpDown={setCustomersUpDown}
           />
         </LayoutDoubleTable>
       </LayoutPage>

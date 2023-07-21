@@ -1,7 +1,7 @@
 import Cards from '@components/cards-prediction'
 import { PredictionsStyled } from './styles'
 
-const PredictionsDiv = () => (
+const PredictionsContainer = () => (
   <PredictionsStyled>
     <Cards />
     <Cards />
@@ -38,4 +38,4 @@ const PredictionsDiv = () => (
   </PredictionsStyled>
 )
 
-export default PredictionsDiv
+export default PredictionsContainer

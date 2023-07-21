@@ -8,14 +8,12 @@ import {
 } from './styles'
 import Table from '@components/table'
 
-type UpDownType = 'up' | 'down'
-
 type TableContainerProps = {
   title: string
   color: string
   image: string
   th: string[]
-  td: Products[] | Customers[]
+  td?: Partial<Products>[] | Partial<Customers>[]
 }
 
 const TableContainer = ({
@@ -25,7 +23,7 @@ const TableContainer = ({
   th,
   td
 }: TableContainerProps) => {
-  const [classUpDown, setClassUpDown] = useState<UpDownType>('up')
+  const [classUpDown, setClassUpDown] = useState<UpDownType>('EM_ALTA')
   return (
     <TableContainerStyled>
       <TableContainerHeader>
@@ -37,14 +35,14 @@ const TableContainer = ({
         </Title>
         <UpDown>
           <div
-            onClick={() => setClassUpDown('up')}
-            className={classUpDown === 'up' ? 'up' : ''}
+            onClick={() => setClassUpDown('EM_ALTA')}
+            className={classUpDown === 'EM_ALTA' ? 'up' : ''}
           >
             Em alta
           </div>
           <div
-            onClick={() => setClassUpDown('down')}
-            className={classUpDown === 'down' ? 'down' : ''}
+            onClick={() => setClassUpDown('EM_BAIXA')}
+            className={classUpDown === 'EM_BAIXA' ? 'down' : ''}
           >
             Em baixa
           </div>
