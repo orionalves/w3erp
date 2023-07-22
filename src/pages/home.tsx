@@ -1,12 +1,10 @@
-import Sidebar from '@components/sidebar'
-import Header from '@components/header'
 import Dashboard from '@components/dashboard'
 import LayoutDoubleTable from '@components/layout-double-table'
 import LayoutPage from '@components/layout-page'
 import { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '@context/login-context'
 import { getDashboard } from '@services/dashboard'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import TableDashboard from '@components/table-dashboard'
 import { getProductsCustomers } from '@services/productsCustomers'
 
@@ -18,13 +16,13 @@ const Home = () => {
   const [productsUpDown, setProductsUpDown] = useState<UpDownType>('EM_ALTA')
   const [customers, setCustomers] = useState<Partial<ProductsCustomersData>>([])
   const [customersUpDown, setCustomersUpDown] = useState<UpDownType>('EM_ALTA')
+  const { localStorageState, setLocalStorageState } = useContext(LoginContext)
 
-  const { localStorageState } = useContext(LoginContext)
-
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   useEffect(() => {
+    setLocalStorageState(localStorage.getItem('TOKEN'))
     if (!localStorageState) {
-      navigate('/login')
+      // navigate('/login')
       return
     }
     const fetchApi = async () => {
@@ -51,14 +49,18 @@ const Home = () => {
     }
 
     fetchApi()
-  }, [customersUpDown, localStorageState, navigate, productsUpDown])
+  }, [
+    customersUpDown,
+    localStorageState,
+    // navigate,
+    productsUpDown,
+    setLocalStorageState
+  ])
   // if(!dashboardCards){
   //   return <> </>
   // }
   return (
     <>
-      <Header token={localStorageState} />
-      <Sidebar />
       <LayoutPage>
         <Dashboard {...dashboardCards} />
         <LayoutDoubleTable>

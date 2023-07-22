@@ -21,7 +21,7 @@ export const loginService = async ({ email, senha }: LoginType) => {
   }
 }
 
-export const loginName = async ({ token }: TokenProps) => {
+export const loginName = async (token: string) => {
   try {
     api.defaults.headers.common['Authorization'] = `${
       import.meta.env.VITE_AUTHORIZATION_TYPE

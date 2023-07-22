@@ -29,16 +29,16 @@ const Pagination = () => {
         alt="Seta para esquerda."
         onClick={() => arrowDownHandleNumberClick()}
       />
-      <Numbers isActive={pageNumber === 1} onClick={() => handleNumberClick(1)}>
+      <Numbers isactive={pageNumber === 1} onClick={() => handleNumberClick(1)}>
         1
       </Numbers>
-      <Numbers isActive={pageNumber === 2} onClick={() => handleNumberClick(2)}>
+      <Numbers isactive={pageNumber === 2} onClick={() => handleNumberClick(2)}>
         2
       </Numbers>
-      <Numbers isActive={pageNumber === 3} onClick={() => handleNumberClick(3)}>
+      <Numbers isactive={pageNumber === 3} onClick={() => handleNumberClick(3)}>
         3
       </Numbers>
-      <Numbers isActive={pageNumber === 4} onClick={() => handleNumberClick(4)}>
+      <Numbers isactive={pageNumber === 4} onClick={() => handleNumberClick(4)}>
         4
       </Numbers>
       <img

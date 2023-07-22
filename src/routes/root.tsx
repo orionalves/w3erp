@@ -1,5 +1,10 @@
-import Login from '@pages/login'
+import App from '../App'
+import { LoginProvider } from '@context/login-context'
 
 export default function Root() {
-  return <Login />
+  return (
+    <LoginProvider>
+      <App />
+    </LoginProvider>
+  )
 }

@@ -45,20 +45,13 @@ type TableProductsPage = {
   percent: number
 }
 
-type Customers = {
-  id: string
-  customer: string
-  percent: number
-  image: ReactNode
-}
-
 type LoginType = {
   email: string
   senha: string
 }
 
 type TokenProps = {
-  token?: string | null
+  token: string | null
 }
 
 type Me = {

@@ -5,22 +5,13 @@ import Home from '@pages/home'
 import Predictions from '@pages/predictions'
 import Products from '@pages/products'
 import Login from '@pages/login'
-import App from '../App'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <Root />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: '/',
-        element: <Root />
-      },
-      {
-        path: '/login',
-        element: <Login />
-      },
       {
         path: '/home',
         element: <Home />
@@ -34,6 +25,12 @@ const router = createBrowserRouter([
         element: <Products />
       }
     ]
+  },
+  {
+    path: '/login',
+    element: <Login />,
+    errorElement: <ErrorPage />,
+    index: true
   }
 ])
 

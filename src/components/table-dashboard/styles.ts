@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import { color, fonts } from '@styles/constants'
 
 export const TableDashboardStyled = styled.div`
+  flex: 1;
+  flex-basis: 50%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
