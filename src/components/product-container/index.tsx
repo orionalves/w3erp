@@ -1,4 +1,4 @@
-import Search from '@components/search'
+// import Search from '@components/search'
 import { ProductContainerStyled } from './styles'
 import filter from '@icons/filter.svg'
 import Table from '@components/table'
@@ -13,7 +13,7 @@ const thTableProductsPage = ['ID', 'Produto', 'Status', 'Percentual']
 const ProductContainer = ({ td }: ProductContainerProps) => (
   <ProductContainerStyled>
     <div className="search">
-      <Search />
+      {/* <Search /> */}
       <img src={filter} alt="Filtro" />
     </div>
     <Table th={thTableProductsPage} td={td} />
