@@ -45,22 +45,20 @@ const TableDashboard = ({
         </UpDown>
       </TableContainerHeader>
       <Table th={title === 'Produtos' ? productsTh : customersTh}>
-        <>
-          {apiResult !== undefined &&
-            apiResult.map((value, index) => (
-              <tr key={index}>
-                <td>{value?.id}</td>
-                <td style={{ textAlign: 'left' }}>{capitalize(value?.nome)}</td>
-                <td>
-                  {upDown === 'EM_ALTA' && '+'}
-                  {value?.percentual}%
-                </td>
-                <td>
-                  <Arrow />
-                </td>
-              </tr>
-            ))}
-        </>
+        {apiResult !== undefined &&
+          apiResult.map((value, index) => (
+            <tr key={index}>
+              <td>{value?.id}</td>
+              <td style={{ textAlign: 'left' }}>{capitalize(value?.nome)}</td>
+              <td>
+                {upDown === 'EM_ALTA' && '+'}
+                {value?.percentual}%
+              </td>
+              <td>
+                <Arrow />
+              </td>
+            </tr>
+          ))}
       </Table>
     </TableDashboardStyled>
   )

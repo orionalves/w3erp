@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { color, fonts } from '@styles/constants'
 
-export const EnterStyled = styled.button`
+export const ButtonStyled = styled.button`
   border: none;
   display: flex;
   align-items: center;

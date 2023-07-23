@@ -1,4 +1,4 @@
-import Enter from '@components/enter'
+import Button from '@components/button'
 import InputField from '@components/input-field'
 import { loginService } from '../services/login'
 import { ChangeEvent, MouseEvent, useState } from 'react'
@@ -42,7 +42,7 @@ const Login = () => {
     <>
       <InputField label="E-mail" type="text" onChange={handleChange} />
       <InputField label="Senha" type="password" onChange={handleChange} />
-      <Enter onClick={handleLogin} />
+      <Button title="Entrar" onClick={handleLogin} />
     </>
   )
 }

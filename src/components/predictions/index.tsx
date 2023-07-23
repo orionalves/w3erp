@@ -6,6 +6,13 @@ type PredictionsContainerProps = {
   predictions?: Partial<PredictionsApi>
   search: string
 }
+type CardsType = {
+  name: string
+  products: {
+    name: string
+    nextPurchase: string
+  }[]
+}[]
 
 const PredictionsContainer = ({
   predictions,
@@ -21,6 +28,12 @@ const PredictionsContainer = ({
     }
   })
 
+  const renderCards = (cardsArray?: CardsType) => {
+    return cardsArray?.map((value, index) => (
+      <Cards key={index} name={value.name} products={value.products} />
+    ))
+  }
+
   const filteredCards =
     search.length > 0
       ? cards?.filter(filter =>
@@ -30,13 +43,7 @@ const PredictionsContainer = ({
 
   return (
     <PredictionsStyled>
-      {search.length > 0
-        ? filteredCards?.map((value, index) => (
-            <Cards key={index} name={value.name} products={value.products} />
-          ))
-        : cards?.map((value, index) => (
-            <Cards key={index} name={value.name} products={value.products} />
-          ))}
+      {search.length > 0 ? renderCards(filteredCards) : renderCards(cards)}
     </PredictionsStyled>
   )
 }

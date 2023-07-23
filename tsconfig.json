@@ -25,6 +25,7 @@
     "paths": {
       "@*": ["src/*"],
       "@components/*": ["src/components/*"],
+      "@constants/*": ["src/assets/constants/*"],
       "@context/*": ["src/context/*"],
       "@icons/*": ["src/assets/icons/*"],
       "@images/*": ["src/assets/images/*"],
@@ -32,7 +33,7 @@
       "@routes/*": ["src/routes/*"],
       "@services/*": ["src/services/*"],
       "@styles/*": ["src/styles/*"],
-      "@utils/*": ["utils/*"],
+      "@utils/*": ["src/utils/*"],
     }
   },
   "include": ["src"],

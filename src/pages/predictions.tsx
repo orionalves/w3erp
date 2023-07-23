@@ -31,15 +31,6 @@ const Predictions = () => {
     fetchApi()
   }, [localStorageState])
 
-  // const filteredPredictions =
-  //   search.length > 0
-  //     ? predictions?.content?.filter(filter => filter.nome.includes(search))
-  //     : []
-
-  // useEffect(() => {
-
-  // }, [search])
-
   return (
     <LayoutPage>
       <Title title="Predições" color={color.gray900} />

@@ -4,7 +4,6 @@ import { color } from '@styles/constants'
 export const PredictionsStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 1.5rem;
   height: calc(100vh - 2rem - 3.5rem - 2rem - 2.5rem - 2rem - 8rem);
   overflow-y: scroll;
