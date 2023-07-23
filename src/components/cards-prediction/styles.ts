@@ -2,6 +2,9 @@ import styled from 'styled-components'
 import { color, fonts } from '@styles/constants'
 
 export const CardsStyled = styled.div`
+  flex-basis: calc(25% - 1.5rem);
+  min-width: 20rem;
+  min-height: 16rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -10,18 +13,33 @@ export const CardsStyled = styled.div`
   border-radius: 24px;
   box-shadow: 0px 0px 25px 0px rgba(163, 163, 163, 0.2);
   font-family: ${fonts.poppins};
-  .header {
-    display: flex;
-    gap: 1rem;
-  }
-  .circle {
+  div.header {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    background-color: ${color.primaryBlue4};
+    justify-content: space-between;
+    gap: 1rem;
+    div.title {
+      width: 100%;
+      white-space: normal;
+      h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: ${color.gray900};
+      }
+      li {
+        font-size: 0.8rem;
+        color: ${color.success};
+      }
+    }
+    div.circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background-color: ${color.primaryBlue4};
+    }
   }
   table {
     width: 100%;
@@ -48,15 +66,5 @@ export const CardsStyled = styled.div`
         text-align: center;
       }
     }
-  }
-  .title h2 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: ${color.gray900};
-    margin-right: 4.75rem;
-  }
-  .title li {
-    font-size: 0.8rem;
-    color: ${color.success};
   }
 `

@@ -6,20 +6,13 @@ import facialCleanser from '@icons/facial-cleanser-blue.svg'
 import people from '@icons/every-user.svg'
 import Table from '@components/new-table'
 import TableContainerHeader from '@components/table-container-header'
+import { capitalize } from '@utils/capitalize'
 
 type TableDashboardProps = {
   title: 'Produtos' | 'Clientes'
   apiResult: Partial<ProductsCustomersData>
   upDown: UpDownType
   setUpDown: React.Dispatch<React.SetStateAction<UpDownType>>
-}
-
-const convertToCapitalize = (text?: string) => {
-  if (typeof text === 'string') {
-    return text
-      .toLowerCase()
-      .replace(/(?<!\p{L})\b\w(?!\/)/gu, letter => letter.toUpperCase())
-  }
 }
 
 const TableDashboard = ({
@@ -57,9 +50,7 @@ const TableDashboard = ({
             apiResult.map((value, index) => (
               <tr key={index}>
                 <td>{value?.id}</td>
-                <td style={{ textAlign: 'left' }}>
-                  {convertToCapitalize(value?.nome)}
-                </td>
+                <td style={{ textAlign: 'left' }}>{capitalize(value?.nome)}</td>
                 <td>
                   {upDown === 'EM_ALTA' && '+'}
                   {value?.percentual}%

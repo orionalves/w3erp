@@ -16,11 +16,10 @@ const Home = () => {
   const [productsUpDown, setProductsUpDown] = useState<UpDownType>('EM_ALTA')
   const [customers, setCustomers] = useState<Partial<ProductsCustomersData>>([])
   const [customersUpDown, setCustomersUpDown] = useState<UpDownType>('EM_ALTA')
-  const { localStorageState, setLocalStorageState } = useContext(LoginContext)
+  const { localStorageState } = useContext(LoginContext)
 
   // const navigate = useNavigate()
   useEffect(() => {
-    setLocalStorageState(localStorage.getItem('TOKEN'))
     if (!localStorageState) {
       // navigate('/login')
       return
@@ -53,8 +52,7 @@ const Home = () => {
     customersUpDown,
     localStorageState,
     // navigate,
-    productsUpDown,
-    setLocalStorageState
+    productsUpDown
   ])
   // if(!dashboardCards){
   //   return <> </>

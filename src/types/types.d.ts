@@ -60,3 +60,49 @@ type Me = {
   nome: string
   papel: string
 }
+
+type Product = {
+  id: number
+  nome: string
+  proximaCompra: string
+}
+
+type Pageable = {
+  offset: number
+  pageNumber: number
+  pageSize: number
+  paged: boolean
+  sort: {
+    empty: boolean
+    sorted: boolean
+    unsorted: boolean
+  }
+  unpaged: boolean
+}
+
+type PredictionsApi = {
+  content: {
+    classificacao: string
+    email: string
+    id: number
+    nome: string
+    percentual: number
+    produtos: Product[]
+    telefone: string
+    whatsapp: string
+  }[]
+  empty: boolean
+  first: boolean
+  last: boolean
+  number: number
+  numberOfElements: number
+  pageable: Pageable
+  size: number
+  sort: {
+    empty: boolean
+    sorted: boolean
+    unsorted: boolean
+  }
+  totalElements: number
+  totalPages: number
+}

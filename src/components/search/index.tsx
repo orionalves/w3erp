@@ -1,9 +1,20 @@
+import { ChangeEventHandler } from 'react'
 import { SearchStyled } from './styles'
 import search from '@icons/search.svg'
 
-const Search = () => (
+type SearchProps = {
+  onChange: ChangeEventHandler<HTMLInputElement>
+  value: string
+}
+
+const Search = ({ onChange, value }: SearchProps) => (
   <SearchStyled>
-    <input type="text" placeholder="Pesquise uma palavra-chave" />
+    <input
+      onChange={onChange}
+      type="text"
+      placeholder="Pesquise uma palavra-chave"
+      value={value}
+    />
     <img src={search} alt="Lupa" />
   </SearchStyled>
 )
