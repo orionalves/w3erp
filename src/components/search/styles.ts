@@ -23,7 +23,4 @@ export const SearchStyled = styled.div`
     right: 1rem;
     top: 30%;
   }
-  img:hover {
-    cursor: pointer;
-  }
 `
