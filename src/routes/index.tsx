@@ -5,6 +5,8 @@ import Home from '@pages/home'
 import Predictions from '@pages/predictions'
 import Products from '@pages/products'
 import Login from '@pages/login'
+import ProductDetails from '@pages/product-details'
+import PredictionsDetails from '@pages/predictions-details'
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: '/products',
         element: <Products />
+      },
+      {
+        path: '/productdetails/:id',
+        element: <ProductDetails />
+      },
+      {
+        path: '/predictionsdetails/:id',
+        element: <PredictionsDetails />
       }
     ]
   },

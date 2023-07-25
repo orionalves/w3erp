@@ -7,6 +7,7 @@ type PredictionsContainerProps = {
   search: string
 }
 type CardsType = {
+  id: number
   name: string
   products: {
     name: string
@@ -20,6 +21,7 @@ const PredictionsContainer = ({
 }: PredictionsContainerProps) => {
   const cards = predictions?.content?.map(value => {
     return {
+      id: value.id,
       name: value.nome,
       products: value.produtos.map(products => ({
         name: products.nome,
@@ -30,7 +32,12 @@ const PredictionsContainer = ({
 
   const renderCards = (cardsArray?: CardsType) => {
     return cardsArray?.map((value, index) => (
-      <Cards key={index} name={value.name} products={value.products} />
+      <Cards
+        key={index}
+        name={value.name}
+        products={value.products}
+        id={value.id}
+      />
     ))
   }
 

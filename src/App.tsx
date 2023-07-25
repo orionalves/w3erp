@@ -8,7 +8,7 @@ import { loginName } from '@services/login'
 
 function App() {
   const [data, setData] = useState<Me | null>(null)
-  const { localStorageState, setLocalStorageState } = useContext(LoginContext)
+  const { localStorageState } = useContext(LoginContext)
 
   useEffect(() => {
     if (!localStorageState) {
@@ -26,7 +26,7 @@ function App() {
     }
 
     fetchLoginName()
-  }, [localStorageState, setLocalStorageState])
+  }, [localStorageState])
 
   return (
     <>

@@ -4,7 +4,6 @@ import LayoutPage from '@components/layout-page'
 import { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '@context/login-context'
 import { getDashboard } from '@services/dashboard'
-// import { useNavigate } from 'react-router-dom'
 import TableDashboard from '@components/table-dashboard'
 import { getProductsCustomers } from '@services/productsCustomers'
 
@@ -18,10 +17,8 @@ const Home = () => {
   const [customersUpDown, setCustomersUpDown] = useState<UpDownType>('EM_ALTA')
   const { localStorageState } = useContext(LoginContext)
 
-  // const navigate = useNavigate()
   useEffect(() => {
     if (!localStorageState) {
-      // navigate('/login')
       return
     }
     const fetchApi = async () => {
@@ -48,15 +45,8 @@ const Home = () => {
     }
 
     fetchApi()
-  }, [
-    customersUpDown,
-    localStorageState,
-    // navigate,
-    productsUpDown
-  ])
-  // if(!dashboardCards){
-  //   return <> </>
-  // }
+  }, [customersUpDown, localStorageState, productsUpDown])
+
   return (
     <>
       <LayoutPage>

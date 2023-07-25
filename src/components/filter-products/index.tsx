@@ -27,7 +27,7 @@ const Filter = ({
       <p>Status</p>
       {all !== undefined && (
         <FilterChoose>
-          <input type="checkbox" id="all" />
+          <input type="checkbox" id="all" name="filter" />
           <label htmlFor="all">Todos</label>
           <p>{all}</p>
         </FilterChoose>
@@ -39,6 +39,7 @@ const Filter = ({
             checked={checkUp}
             onChange={() => setCheckUp(!checkUp)}
             id="up"
+            name="filter"
           />
           <label htmlFor="up">Em alta</label>
           <p>{up}</p>
@@ -51,6 +52,7 @@ const Filter = ({
             checked={checkDown}
             onChange={() => setCheckDown(!checkDown)}
             id="down"
+            name="filter"
           />
           <label htmlFor="down">Em baixa</label>
           <p>{down}</p>

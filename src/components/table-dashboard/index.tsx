@@ -1,12 +1,13 @@
 import { TableDashboardStyled, UpDown } from './styles'
 import { productsTh, customersTh } from '../../assets/constants/index'
-import Arrow from '@components/arrow'
+import right from '@icons/right.svg'
 import { color } from '@styles/constants'
 import facialCleanser from '@icons/facial-cleanser-blue.svg'
 import people from '@icons/every-user.svg'
-import Table from '@components/new-table'
+import Table from '@components/table'
 import TableContainerHeader from '@components/table-container-header'
 import { capitalize } from '@utils/capitalize'
+import { Link } from 'react-router-dom'
 
 type TableDashboardProps = {
   title: 'Produtos' | 'Clientes'
@@ -51,11 +52,21 @@ const TableDashboard = ({
               <td>{value?.id}</td>
               <td style={{ textAlign: 'left' }}>{capitalize(value?.nome)}</td>
               <td>
-                {upDown === 'EM_ALTA' && '+'}
+                {value?.percentual !== undefined &&
+                  value?.percentual > 0 &&
+                  '+'}
                 {value?.percentual}%
               </td>
               <td>
-                <Arrow />
+                <Link
+                  to={
+                    title === 'Produtos'
+                      ? '/productdetails/' + value?.id
+                      : '/clientdetails/' + value?.id
+                  }
+                >
+                  <img src={right} alt="Seta para direita" />
+                </Link>
               </td>
             </tr>
           ))}

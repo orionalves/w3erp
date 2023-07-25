@@ -6,14 +6,6 @@ type LoginContextType = {
   setLocalStorageState: React.Dispatch<React.SetStateAction<string | null>>
 }
 
-// const initialValue = {
-//   localStorageState: localStorage.getItem('TOKEN'),
-//   // eslint-disable-next-line @typescript-eslint/no-empty-function
-//   setLocalStorageState: () => {}
-// }
-
-// export const LoginContext = createContext<LoginContextType>(initialValue)
-// export const LoginContext = createContext({})
 export const LoginContext = createContext<LoginContextType>({
   localStorageState: null,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -31,7 +23,6 @@ export const LoginProvider = ({ children }: ChildrenType) => {
       navigate('/login')
       return
     }
-    navigate('/home')
   }, [localStorageState, navigate])
 
   return (

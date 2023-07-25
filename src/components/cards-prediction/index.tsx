@@ -1,8 +1,9 @@
-import Arrow from '@components/arrow'
+import right from '@icons/right.svg'
 import { CardsStyled } from './styles'
 import user from '@icons/user-blue.svg'
 import { capitalize } from '@utils/capitalize'
 import { formatDate } from '@utils/formatDate'
+import { Link } from 'react-router-dom'
 
 type ProductsCards = {
   name: string
@@ -10,11 +11,12 @@ type ProductsCards = {
 }
 
 type CardsProps = {
+  id: number
   name: string
   products: ProductsCards[]
 }
 
-const Cards = ({ name, products }: CardsProps) => (
+const Cards = ({ id, name, products }: CardsProps) => (
   <CardsStyled>
     <div className="header">
       <div className="circle">
@@ -24,7 +26,9 @@ const Cards = ({ name, products }: CardsProps) => (
         <h2>{capitalize(name)}</h2>
         <li>Status vai aqui</li>
       </div>
-      <Arrow />
+      <Link to={'/predictionsdetails/' + id}>
+        <img src={right} alt="Seta para direita" />
+      </Link>
     </div>
     <table>
       <thead>

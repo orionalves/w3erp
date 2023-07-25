@@ -25,19 +25,23 @@ export const ProductContainerStyled = styled.div`
     font-size: 0.8rem;
     color: ${color.gray500};
   }
-  table th:nth-child(1) {
+  table thead tr th:nth-child(1) {
     width: 10%;
   }
-  table th:nth-child(2) {
+  table thead tr th:nth-child(2) {
     width: 50%;
   }
-  table th:nth-child(2),
-  table th:nth-child(3),
-  table td:nth-child(2),
-  table td:nth-child(3) {
+  table thead tr th:nth-child(2),
+  table thead tr th:nth-child(3),
+  table tbody tr td:nth-child(2),
+  table tbody tr td:nth-child(3) {
     text-align: left;
   }
-  table td div {
+  table tbody tr td a {
+    text-decoration: none;
+    color: ${color.gray900};
+  }
+  table tbody tr td div {
     display: flex;
     justify-content: center;
     padding: 0.5rem 1.1rem;

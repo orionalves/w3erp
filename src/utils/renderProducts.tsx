@@ -1,11 +1,20 @@
 /* eslint-disable indent */
 import { capitalize } from '@utils/capitalize'
+import { Link } from 'react-router-dom'
 
 export const renderProducts = (productsArray?: ContentProductsApi[]) => {
+  // const products = productsArray?.filter(
+  //   filter => !filter.classificacao.includes('NEUTRO')
+  // )
+
   return productsArray?.map((value, index) => (
     <tr key={index}>
       <td>{value?.id}</td>
-      <td>{capitalize(value?.nome)}</td>
+      <td>
+        <Link to={'/productdetails/' + value?.id}>
+          {capitalize(value?.nome)}
+        </Link>
+      </td>
       <td>
         <div
           className={

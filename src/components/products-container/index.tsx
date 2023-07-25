@@ -2,7 +2,7 @@
 import Search from '@components/search'
 import { ProductContainerStyled } from './styles'
 import filter from '@icons/filter.svg'
-import Table from '@components/new-table'
+import Table from '@components/table'
 import Pagination from '@components/pagination'
 import { tableProductsPageTh } from '@constants/index'
 import { renderProducts } from '@utils/renderProducts'
@@ -36,36 +36,13 @@ const ProductsContainer = ({
   const up = products?.content?.filter(filter =>
     filter.classificacao.includes('EM_ALTA')
   ).length
-  // const filteredUp = upChecked
-  //   ? products?.content?.filter(filter =>
-  //       filter.classificacao.includes('EM_ALTA')
-  //     )
-  //   : []
+
   const filteredProducts =
     search.length > 0
       ? products?.content?.filter(filter =>
           filter.nome.toLowerCase().includes(search.toLowerCase())
         )
       : []
-
-  // let check: ContentProductsApi[] | undefined = undefined
-  // if (upChecked && !downChecked) {
-  //   return (check = products?.content?.filter(filter =>
-  //     filter.classificacao.includes('EM_ALTA')
-  //   ))
-  // }
-  // if (!upChecked && downChecked) {
-  //   return (check = products?.content?.filter(filter =>
-  //     filter.classificacao.includes('EM_BAIXA')
-  //   ))
-  // }
-  // if (upChecked && downChecked) {
-  //   return (check = products?.content?.filter(
-  //     filter =>
-  //       filter.classificacao.includes('EM_ALTA') &&
-  //       filter.classificacao.includes('EM_BAIXA')
-  //   ))
-  // }
 
   return (
     <ProductContainerStyled>
@@ -88,9 +65,6 @@ const ProductsContainer = ({
         )}
       </div>
       <Table th={tableProductsPageTh}>
-        {/* {upChecked
-          ? renderProducts(filteredUp)
-          : renderProducts(products?.content)} */}
         {search.length > 0
           ? renderProducts(filteredProducts)
           : renderProducts(products?.content)}
