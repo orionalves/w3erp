@@ -4,7 +4,7 @@ import api from './index'
 export const getPredctionDetails = async (
   token: string,
   id?: string,
-  route: 'esgotando' | 'historico'
+  route?: 'esgotando' | 'historico'
 ) => {
   try {
     api.defaults.headers.common['Authorization'] = `${
