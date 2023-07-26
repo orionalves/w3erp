@@ -14,9 +14,9 @@ export const getPredctionDetails = async (
       import.meta.env.VITE_X_TENANT_ID
     }`
     const response = await api.get<PreditionDetails>(
-      `/app/predicao/${id}/${route}`
+      `/app/predicao/${id}/${route}?size=10`
     )
-    return response.data
+    return response.data.content
   } catch (error) {
     if (isAxiosError(error)) return error.response?.data
   }

@@ -6,7 +6,8 @@ import Predictions from '@pages/predictions'
 import Products from '@pages/products'
 import Login from '@pages/login'
 import ProductDetails from '@pages/product-details'
-import PredictionsDetails from '@pages/predictions-details'
+import PredictionDetails from '@pages/prediction-details'
+import CustomerDetails from '@pages/customer-details'
 
 const router = createBrowserRouter([
   {
@@ -31,8 +32,12 @@ const router = createBrowserRouter([
         element: <ProductDetails />
       },
       {
-        path: '/predictionsdetails/:id',
-        element: <PredictionsDetails />
+        path: '/customerdetails/:id',
+        element: <CustomerDetails />
+      },
+      {
+        path: '/predictiondetails/:id',
+        element: <PredictionDetails />
       }
     ]
   },

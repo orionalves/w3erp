@@ -1,4 +1,4 @@
-import { TableProductDetailsStyled } from './styles'
+import { TableProductCustomerDetailsStyled } from './styles'
 import { productDetailsTh } from '@constants/index'
 import down from '@icons/trending-down.svg'
 import up from '@icons/trending-up.svg'
@@ -7,33 +7,37 @@ import Table from '@components/table'
 import TableContainerHeader from '@components/table-container-header'
 import { capitalize } from '@utils/capitalize'
 
-type TableProductDetailsProps = {
-  title: 'Clientes em baixa' | 'Clientes em alta'
-  apiResult?: ProductIdClient
+type TableProductCustomerDetailsProps = {
+  title:
+    | 'Clientes em baixa'
+    | 'Clientes em alta'
+    | 'Produtos em baixa'
+    | 'Produtos em alta'
+  apiResult?: ProductCustomerClient
 }
 
-const TableProductDetails = ({
+const TableProductCustomerDetails = ({
   title,
   apiResult
-}: TableProductDetailsProps) => {
+}: TableProductCustomerDetailsProps) => {
   return (
-    <TableProductDetailsStyled>
+    <TableProductCustomerDetailsStyled>
       <TableContainerHeader
         title={title}
-        image={title === 'Clientes em baixa' ? down : up}
+        image={title.includes('em baixa') ? down : up}
         alt={
-          title === 'Clientes em baixa'
+          title.includes('em baixa')
             ? 'Gráfico para baixo'
             : 'Gráfico para baixo'
         }
-        color={title === 'Clientes em baixa' ? color.error : color.success}
+        color={title.includes('em baixa') ? color.error : color.success}
       ></TableContainerHeader>
       <Table th={productDetailsTh}>
         {apiResult !== undefined &&
           apiResult.map((value, index) => (
             <tr key={index}>
               <td>{value.id}</td>
-              <td style={{ textAlign: 'left' }}>{capitalize(value.nome)}</td>
+              <td>{capitalize(value.nome)}</td>
               <td>
                 {value.percentual !== undefined && value.percentual > 0 && '+'}
                 {value.percentual}%
@@ -42,8 +46,8 @@ const TableProductDetails = ({
             </tr>
           ))}
       </Table>
-    </TableProductDetailsStyled>
+    </TableProductCustomerDetailsStyled>
   )
 }
 
-export default TableProductDetails
+export default TableProductCustomerDetails

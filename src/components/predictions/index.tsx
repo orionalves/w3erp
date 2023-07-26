@@ -3,7 +3,7 @@ import Cards from '@components/cards-prediction'
 import { PredictionsStyled } from './styles'
 
 type PredictionsContainerProps = {
-  predictions?: Partial<PredictionsApi>
+  predictions?: PredictionsContent[]
   search: string
 }
 type CardsType = {
@@ -19,7 +19,7 @@ const PredictionsContainer = ({
   predictions,
   search
 }: PredictionsContainerProps) => {
-  const cards = predictions?.content?.map(value => {
+  const cards = predictions?.map(value => {
     return {
       id: value.id,
       name: value.nome,

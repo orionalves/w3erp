@@ -10,7 +10,7 @@ import { getPredictions } from '@services/predictions'
 
 const Predictions = () => {
   const { localStorageState } = useContext(LoginContext)
-  const [predictions, setPredictions] = useState<Partial<PredictionsApi>>()
+  const [predictions, setPredictions] = useState<PredictionsContent[]>()
   const [search, setSearch] = useState('')
 
   useEffect(() => {

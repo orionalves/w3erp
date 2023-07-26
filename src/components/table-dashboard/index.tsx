@@ -62,7 +62,7 @@ const TableDashboard = ({
                   to={
                     title === 'Produtos'
                       ? '/productdetails/' + value?.id
-                      : '/clientdetails/' + value?.id
+                      : '/customerdetails/' + value?.id
                   }
                 >
                   <img src={right} alt="Seta para direita" />

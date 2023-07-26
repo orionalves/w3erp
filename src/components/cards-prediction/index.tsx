@@ -26,7 +26,7 @@ const Cards = ({ id, name, products }: CardsProps) => (
         <h2>{capitalize(name)}</h2>
         <li>Status vai aqui</li>
       </div>
-      <Link to={'/predictionsdetails/' + id}>
+      <Link to={'/predictiondetails/' + id}>
         <img src={right} alt="Seta para direita" />
       </Link>
     </div>

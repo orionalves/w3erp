@@ -1,10 +1,11 @@
 import { isAxiosError } from 'axios'
 import api from './index'
 
-export const getProductDetail = async (
+export const getProductCustomerDetail = async (
   token: string,
   classification: string,
-  id?: string
+  id?: string,
+  route?: 'cliente' | 'produto'
 ) => {
   try {
     api.defaults.headers.common['Authorization'] = `${
@@ -13,8 +14,10 @@ export const getProductDetail = async (
     api.defaults.headers.common['X-TENANT-ID'] = `${
       import.meta.env.VITE_X_TENANT_ID
     }`
-    const response = await api.get<ProductIdClient>(
-      `/app/produto/${id}/clientes?classificacao=${classification}`
+    const response = await api.get<ProductCustomerClient>(
+      `/app/${route}/${id}/${
+        route === 'cliente' ? 'produtos' : 'clientes'
+      }?classificacao=${classification}`
     )
     return response.data
   } catch (error) {
@@ -22,7 +25,11 @@ export const getProductDetail = async (
   }
 }
 
-export const getProductSummary = async (token: string, id?: string) => {
+export const getProductCustomerSummary = async (
+  token: string,
+  id?: string,
+  route?: 'cliente' | 'produto'
+) => {
   try {
     api.defaults.headers.common['Authorization'] = `${
       import.meta.env.VITE_AUTHORIZATION_TYPE
@@ -30,8 +37,8 @@ export const getProductSummary = async (token: string, id?: string) => {
     api.defaults.headers.common['X-TENANT-ID'] = `${
       import.meta.env.VITE_X_TENANT_ID
     }`
-    const response = await api.get<ProductIdSummary>(
-      `/app/produto/${id}/resumo`
+    const response = await api.get<ProductCustomerSummary>(
+      `/app/${route}/${id}/resumo`
     )
     return response.data
   } catch (error) {

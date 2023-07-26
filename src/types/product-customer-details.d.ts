@@ -1,11 +1,11 @@
-type ProductIdClient = {
+type ProductCustomerClient = {
   id: number
   nome: string
   percentual: number
   quantidade: number
 }[]
 
-type ProductIdSummary = {
+type ProductCustomerSummary = {
   media120Dias: number
   nome: string
   percentualUltimos30Dias: number

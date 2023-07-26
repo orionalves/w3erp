@@ -17,17 +17,19 @@ type PageablePredictionsApi = {
   unpaged: boolean
 }
 
+type PredictionsContent = {
+  classificacao: string
+  email: string
+  id: number
+  nome: string
+  percentual: number
+  produtos: ProductPredictionsApi[]
+  telefone: string
+  whatsapp: string
+}
+
 type PredictionsApi = {
-  content: {
-    classificacao: string
-    email: string
-    id: number
-    nome: string
-    percentual: number
-    produtos: ProductPredictionsApi[]
-    telefone: string
-    whatsapp: string
-  }[]
+  content: PredictionsContent[]
   empty: boolean
   first: boolean
   last: boolean

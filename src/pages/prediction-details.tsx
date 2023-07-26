@@ -9,10 +9,10 @@ import { getPredctionDetails } from '@services/predction-details'
 import { getPredictions } from '@services/predictions'
 import TablePredictionDetails from '@components/table-prediction-details'
 
-const PredictionsDetails = () => {
-  const [history, setHistory] = useState<PreditionDetails>()
-  const [emptying, setEmptying] = useState<PreditionDetails>()
-  const [predictions, setPredictions] = useState<PredictionsApi>()
+const PredictionDetails = () => {
+  const [history, setHistory] = useState<PreditionDetailsItem[]>()
+  const [emptying, setEmptying] = useState<PreditionDetailsItem[]>()
+  const [predictions, setPredictions] = useState<PredictionsContent[]>()
 
   const { localStorageState } = useContext(LoginContext)
   const predictionId = useParams<{ id: string }>()
@@ -54,21 +54,16 @@ const PredictionsDetails = () => {
       <LayoutPage>
         <Title
           className="bold"
-          title={predictions !== undefined ? predictions.content[0].nome : ''}
+          title={predictions !== undefined ? predictions[0].nome : ''}
           color={color.primary}
         />
-
-        <p>{predictions?.content[0].telefone}</p>
-
-        <p>{predictions?.content[0].email}</p>
+        <p>{predictions !== undefined && predictions[0].telefone}</p>
+        <p>{predictions !== undefined && predictions[0].email}</p>
         <LayoutDoubleTable>
-          <TablePredictionDetails
-            title="Histórico"
-            apiResult={history?.content}
-          />
+          <TablePredictionDetails title="Histórico" apiResult={history} />
           <TablePredictionDetails
             title="Produtos esgotando"
-            apiResult={emptying?.content}
+            apiResult={emptying}
           />
         </LayoutDoubleTable>
       </LayoutPage>
@@ -76,4 +71,4 @@ const PredictionsDetails = () => {
   )
 }
 
-export default PredictionsDetails
+export default PredictionDetails

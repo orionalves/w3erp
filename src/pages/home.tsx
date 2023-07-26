@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '@context/login-context'
 import { getDashboard } from '@services/dashboard'
 import TableDashboard from '@components/table-dashboard'
-import { getProductsCustomers } from '@services/productsCustomers'
+import { getProductsCustomers } from '@services/products-customers'
 
 const Home = () => {
   const [dashboardCards, setDashboardCards] = useState<

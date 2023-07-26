@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { color } from '@styles/constants'
 
-export const TableProductDetailsStyled = styled.div`
+export const TableProductCustomerDetailsStyled = styled.div`
   flex: 1;
   flex-basis: 50%;
   display: flex;

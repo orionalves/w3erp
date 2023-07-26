@@ -12,8 +12,8 @@ import {
 import TableProductDetails from '@components/table-product- customer-details'
 
 const ProductDetails = () => {
-  const [downProduct, setDownProduct] = useState<ProductCustomerClient>([])
-  const [upProduct, setUpProduct] = useState<ProductCustomerClient>([])
+  const [downCustomer, setDownCustomer] = useState<ProductCustomerClient>([])
+  const [upCustomer, setUpCustomer] = useState<ProductCustomerClient>([])
   const [summary, setSummary] = useState<ProductCustomerSummary>()
   const { localStorageState } = useContext(LoginContext)
   const productId = useParams<{ id: string }>()
@@ -28,21 +28,21 @@ const ProductDetails = () => {
           localStorageState,
           'EM_ALTA',
           productId.id,
-          'produto'
+          'cliente'
         )
         const resultDownProduct = await getProductCustomerDetail(
           localStorageState,
           'EM_BAIXA',
           productId.id,
-          'produto'
+          'cliente'
         )
         const resultSummary = await getProductCustomerSummary(
           localStorageState,
           productId.id,
-          'produto'
+          'cliente'
         )
-        setUpProduct(resultUpProduct)
-        setDownProduct(resultDownProduct)
+        setUpCustomer(resultUpProduct)
+        setDownCustomer(resultDownProduct)
         setSummary(resultSummary)
       } catch (event) {
         if (event instanceof Error) {
@@ -63,10 +63,13 @@ const ProductDetails = () => {
         />
         <LayoutDoubleTable>
           <TableProductDetails
-            title="Clientes em baixa"
-            apiResult={downProduct}
+            title="Produtos em baixa"
+            apiResult={downCustomer}
           />
-          <TableProductDetails title="Clientes em alta" apiResult={upProduct} />
+          <TableProductDetails
+            title="Produtos em alta"
+            apiResult={upCustomer}
+          />
         </LayoutDoubleTable>
       </LayoutPage>
     </>

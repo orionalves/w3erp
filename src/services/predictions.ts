@@ -13,7 +13,7 @@ export const getPredictions = async (token: string, id?: string) => {
       `app/predicao?clienteId=${id !== undefined ? id : ''} `
     )
 
-    return response.data
+    return response.data.content
   } catch (error) {
     if (isAxiosError(error)) return error.response?.data
   }
