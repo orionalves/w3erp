@@ -6,6 +6,7 @@ import { color } from '@styles/constants'
 import Table from '@components/table'
 import TableContainerHeader from '@components/table-container-header'
 import { capitalize } from '@utils/capitalize'
+import { formatDateWithoutYear } from '@utils/formatDate'
 
 type TablePredictionDetailsProps = {
   title: 'Histórico' | 'Produtos esgotando'
@@ -32,8 +33,10 @@ const TablePredictionDetails = ({
             <tr key={index}>
               <td>{value.id}</td>
               <td>{capitalize(value.nome)}</td>
-              <td>{value.ultimaCompra}</td>
-              {title !== 'Histórico' && <td>{value.ultimaCompra}</td>}
+              <td>{formatDateWithoutYear(value.ultimaCompra)}</td>
+              {value.proximaCompra != null && (
+                <td>{formatDateWithoutYear(value.proximaCompra)}</td>
+              )}
               <td>{value.quantidade}</td>
               <td>v</td>
             </tr>

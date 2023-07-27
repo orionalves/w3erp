@@ -9,17 +9,18 @@ export const PaginationStyled = styled.div`
   }
 `
 
-export const Numbers = styled.div<{ isactive: boolean }>`
+export const Numbers = styled.div<{ isactive: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 4px;
-  font-weight: ${({ isactive }) => (isactive ? 600 : 'normal')};
-  color: ${({ isactive }) => (isactive ? color.white : color.gray500)};
+  font-weight: ${({ isactive }) => (isactive === 'true' ? 600 : 'normal')};
+  color: ${({ isactive }) =>
+    isactive === 'true' ? color.white : color.gray500};
   background-color: ${({ isactive }) =>
-    isactive ? color.primary : 'transparent'};
+    isactive === 'true' ? color.primary : 'transparent'};
   &:hover {
     cursor: pointer;
   }

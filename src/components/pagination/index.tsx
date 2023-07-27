@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import { PaginationStyled, Numbers } from './styles'
 import left from '@icons/chevron left.svg'
 import right from '@icons/chevron right.svg'
@@ -44,12 +43,12 @@ const Pagination = ({
     }
 
     const numbers = []
-
     for (let i = startNumber; i <= endNumber; i++) {
       numbers.push(
         <Numbers
           key={i}
-          isactive={pageNumber === i}
+          // isactive={pageNumber === i}
+          isactive={pageNumber === i ? 'true' : 'false'}
           onClick={() => handleNumberClick(i)}
         >
           {i + 1}
@@ -68,7 +67,10 @@ const Pagination = ({
         onClick={() => arrowDownHandleNumberClick()}
       />
       {renderNumbers()}
-      {/* <Numbers isactive={pageNumber === 0} onClick={() => handleNumberClick(0)}>
+      {/* <Numbers 
+      isactive={pageNumber === 0} 
+      onClick={() => 
+        handleNumberClick(0)}>
         1
       </Numbers>*/}
       <img

@@ -10,6 +10,7 @@ import {
   getProductCustomerSummary
 } from '@services/product-customer-details'
 import TableProductDetails from '@components/table-product- customer-details'
+import CardsDetails from '@components/cards-details'
 
 const ProductDetails = () => {
   const [downProduct, setDownProduct] = useState<ProductCustomerClient>([])
@@ -58,9 +59,10 @@ const ProductDetails = () => {
       <LayoutPage>
         <Title
           className="bold"
-          title={summary !== undefined ? summary.nome : ''}
+          title={summary != null ? summary.nome : ''}
           color={color.primary}
         />
+        <CardsDetails summary={summary} />
         <LayoutDoubleTable>
           <TableProductDetails
             title="Clientes em baixa"
