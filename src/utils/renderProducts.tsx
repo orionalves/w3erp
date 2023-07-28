@@ -9,9 +9,9 @@ export const renderProducts = (productsArray?: ContentProductsApi[]) => {
 
   return productsArray?.map((value, index) => (
     <tr key={index}>
-      <td>{value?.id}</td>
+      <td>{value.id}</td>
       <td>
-        <Link to={'/productdetails/' + value?.id}>
+        <Link to={'/productdetails/' + value.id}>
           {capitalize(value?.nome)}
         </Link>
       </td>
@@ -33,8 +33,8 @@ export const renderProducts = (productsArray?: ContentProductsApi[]) => {
         </div>
       </td>
       <td>
-        {value?.percentual > 0 && '+'}
-        {value?.percentual}%
+        {value.percentual > 0 && '+'}
+        {value.percentual}%
       </td>
     </tr>
   ))

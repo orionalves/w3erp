@@ -2,17 +2,17 @@ import LayoutDoubleTable from '@components/layout-double-table'
 import LayoutPage from '@components/layout-page'
 import { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '@context/login-context'
-import { color } from '@styles/constants'
-import Title from '@components/title'
 import { useParams } from 'react-router-dom'
 import { getPredctionDetails } from '@services/predction-details'
 import { getPredictions } from '@services/predictions'
 import TablePredictionDetails from '@components/table-prediction-details'
+// eslint-disable-next-line max-len
+import PredictionDetailTitleContainer from '@components/predicition-detail-title-container'
 
 const PredictionDetails = () => {
   const [history, setHistory] = useState<PreditionDetailsItem[]>()
   const [emptying, setEmptying] = useState<PreditionDetailsItem[]>()
-  const [predictions, setPredictions] = useState<PredictionsContent[]>()
+  const [predictions, setPredictions] = useState<PredictionsContent[]>([])
 
   const { localStorageState } = useContext(LoginContext)
   const predictionId = useParams<{ id: string }>()
@@ -52,13 +52,11 @@ const PredictionDetails = () => {
   return (
     <>
       <LayoutPage>
-        <Title
-          className="bold"
-          title={predictions !== undefined ? predictions[0].nome : ''}
-          color={color.primary}
+        <PredictionDetailTitleContainer
+          title={predictions[0]?.nome}
+          phoneNumber={predictions[0]?.telefone}
+          email={predictions[0]?.email}
         />
-        <p>{predictions !== undefined && predictions[0].telefone}</p>
-        <p>{predictions !== undefined && predictions[0].email}</p>
         <LayoutDoubleTable>
           <TablePredictionDetails title="Histórico" apiResult={history} />
           <TablePredictionDetails

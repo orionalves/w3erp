@@ -6,14 +6,14 @@ export const TableContainerHeaderStyle = styled.div`
   justify-content: space-between;
   align-items: center;
 `
-export const Title = styled.div`
+export const Title = styled.div<{ titleColor?: string }>`
   display: flex;
   align-items: center;
   gap: 1rem;
   font-family: ${fonts.sora};
   font-size: 1.25rem;
   font-weight: 600;
-  color: ${color.gray900};
+  color: ${props => props.titleColor || color.gray900};
 `
 
 export const IconTitle = styled.div`

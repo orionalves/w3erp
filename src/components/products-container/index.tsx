@@ -10,7 +10,7 @@ import Filter from '@components/filter-products'
 import { useState } from 'react'
 
 type ProductsContainerProps = {
-  products?: Partial<ProductsApi>
+  products: Partial<ProductsApi>
   search: string
   onChange: React.Dispatch<React.SetStateAction<string>>
   pageNumber: number
@@ -27,22 +27,19 @@ const ProductsContainer = ({
   const [show, setShow] = useState(false)
   const [upChecked, setUpChecked] = useState(false)
   const [downChecked, setDownChecked] = useState(false)
-  const productsNumberOfElements = products?.numberOfElements
-  const productsTotalElements = products?.totalElements
-  const productsTablePages = products?.totalPages
-  const down = products?.content?.filter(filter =>
+  const productsNumberOfElements = products.numberOfElements
+  const productsTotalElements = products.totalElements
+  const productsTablePages = products.totalPages
+  const down = products.content?.filter(filter =>
     filter.classificacao.includes('EM_BAIXA')
   ).length
-  const up = products?.content?.filter(filter =>
+  const up = products.content?.filter(filter =>
     filter.classificacao.includes('EM_ALTA')
   ).length
 
-  const filteredProducts =
-    search.length > 0
-      ? products?.content?.filter(filter =>
-          filter.nome.toLowerCase().includes(search.toLowerCase())
-        )
-      : []
+  const filteredProducts = products.content?.filter(filter =>
+    filter.nome.toLowerCase().includes(search.toLowerCase())
+  )
 
   return (
     <ProductContainerStyled>
@@ -67,7 +64,7 @@ const ProductsContainer = ({
       <Table th={tableProductsPageTh}>
         {search.length > 0
           ? renderProducts(filteredProducts)
-          : renderProducts(products?.content)}
+          : renderProducts(products.content)}
       </Table>
       <div className="pagination">
         <p>

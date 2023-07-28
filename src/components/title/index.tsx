@@ -1,3 +1,4 @@
+import { capitalize } from '@utils/capitalize'
 import { TitleStyled } from './styles'
 
 type TitleType = {
@@ -9,7 +10,7 @@ type TitleType = {
 const Title = ({ title, color, className }: TitleType) => {
   return (
     <TitleStyled className={className} color={color}>
-      {title}
+      {capitalize(title)}
     </TitleStyled>
   )
 }

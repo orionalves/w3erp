@@ -1,7 +1,11 @@
 import { isAxiosError } from 'axios'
 import api from './index'
 
-export const getPredictions = async (token: string, id?: string) => {
+export const getPredictions = async (
+  token: string,
+  id?: string,
+  page?: number
+) => {
   try {
     api.defaults.headers.common['Authorization'] = `${
       import.meta.env.VITE_AUTHORIZATION_TYPE
@@ -10,7 +14,7 @@ export const getPredictions = async (token: string, id?: string) => {
       import.meta.env.VITE_X_TENANT_ID
     }`
     const response = await api.get<PredictionsApi>(
-      `app/predicao?clienteId=${id !== undefined ? id : ''} `
+      `app/predicao?clienteId=${id !== undefined ? id : ''}&page=${page}`
     )
 
     return response.data.content

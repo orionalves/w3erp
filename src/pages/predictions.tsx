@@ -4,14 +4,16 @@ import { color } from '@styles/constants'
 import Search from '@components/search'
 import ContainerSearch from '@components/container-search'
 import PredictionsContainer from '@components/predictions'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { LoginContext } from '@context/login-context'
 import { getPredictions } from '@services/predictions'
 
 const Predictions = () => {
   const { localStorageState } = useContext(LoginContext)
-  const [predictions, setPredictions] = useState<PredictionsContent[]>()
+  const [predictions, setPredictions] = useState<PredictionsContent[]>([])
   const [search, setSearch] = useState('')
+  const [page, setPage] = useState(0)
+  const endScroll = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (!localStorageState) {
@@ -19,8 +21,19 @@ const Predictions = () => {
     }
     const fetchApi = async () => {
       try {
-        const resultPredictions = await getPredictions(localStorageState)
-        setPredictions(resultPredictions)
+        const resultPredictions = await getPredictions(
+          localStorageState,
+          undefined,
+          page
+        )
+        if (predictions.length > 0) {
+          setPredictions(prevPredictions => [
+            ...prevPredictions,
+            ...resultPredictions
+          ])
+        } else {
+          setPredictions(resultPredictions)
+        }
       } catch (event) {
         if (event instanceof Error) {
           window.alert(event.message)
@@ -29,7 +42,24 @@ const Predictions = () => {
     }
 
     fetchApi()
-  }, [localStorageState])
+  }, [localStorageState, page])
+
+  // eslint-disable-next-line no-console
+  console.log(predictions)
+  useEffect(() => {
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      const ratio = entry.intersectionRatio
+      if (ratio > 0) {
+        setPage(prevPage => prevPage + 1)
+      }
+    })
+    if (endScroll.current) {
+      intersectionObserver.observe(endScroll.current)
+    }
+    return () => {
+      intersectionObserver.disconnect()
+    }
+  }, [endScroll])
 
   return (
     <LayoutPage>
@@ -40,7 +70,9 @@ const Predictions = () => {
           value={search}
         />
       </ContainerSearch>
-      <PredictionsContainer predictions={predictions} search={search} />
+      <PredictionsContainer predictions={predictions} search={search}>
+        <div ref={endScroll} />
+      </PredictionsContainer>
     </LayoutPage>
   )
 }

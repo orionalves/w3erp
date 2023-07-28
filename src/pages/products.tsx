@@ -8,7 +8,7 @@ import { getProducts } from '@services/products'
 
 const Products = () => {
   const { localStorageState } = useContext(LoginContext)
-  const [products, setProducts] = useState<Partial<ProductsApi>>()
+  const [products, setProducts] = useState<Partial<ProductsApi>>({})
   const [search, setSearch] = useState('')
   const [pageNumber, setPageNumber] = useState(0)
 

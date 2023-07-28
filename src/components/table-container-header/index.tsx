@@ -6,6 +6,7 @@ type TableContainerHeaderProps = {
   image?: string
   alt?: string
   color?: string
+  titleColor?: string
   children?: ReactNode
 }
 
@@ -14,11 +15,12 @@ const TableContainerHeader = ({
   image,
   alt,
   color,
+  titleColor,
   children
 }: TableContainerHeaderProps) => {
   return (
     <TableContainerHeaderStyle>
-      <Title>
+      <Title titleColor={titleColor}>
         <IconTitle color={color}>
           <img src={image} alt={alt} />
         </IconTitle>

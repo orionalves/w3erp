@@ -6,6 +6,7 @@ export const BalloonStyled = styled.div`
   position: absolute;
   top: 6rem;
   right: 2rem;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   font-family: ${fonts.poppins};

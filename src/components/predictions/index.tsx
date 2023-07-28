@@ -3,8 +3,9 @@ import Cards from '@components/cards-prediction'
 import { PredictionsStyled } from './styles'
 
 type PredictionsContainerProps = {
-  predictions?: PredictionsContent[]
+  predictions: PredictionsContent[]
   search: string
+  children: React.ReactNode
 }
 type CardsType = {
   id: number
@@ -17,9 +18,10 @@ type CardsType = {
 
 const PredictionsContainer = ({
   predictions,
-  search
+  search,
+  children
 }: PredictionsContainerProps) => {
-  const cards = predictions?.map(value => {
+  const cards = predictions.map(value => {
     return {
       id: value.id,
       name: value.nome,
@@ -30,8 +32,8 @@ const PredictionsContainer = ({
     }
   })
 
-  const renderCards = (cardsArray?: CardsType) => {
-    return cardsArray?.map((value, index) => (
+  const renderCards = (cardsArray: CardsType) => {
+    return cardsArray.map((value, index) => (
       <Cards
         key={index}
         name={value.name}
@@ -40,18 +42,23 @@ const PredictionsContainer = ({
       />
     ))
   }
+  const filteredPredictions = predictions.filter(prediction =>
+    prediction.nome.toLowerCase().includes(search.toLowerCase())
+  )
 
-  const filteredCards =
-    search.length > 0
-      ? cards?.filter(filter =>
-          filter.name.toLowerCase().includes(search.toLowerCase())
-        )
-      : []
+  const filteredCards = cards.filter(card =>
+    filteredPredictions.some(
+      prediction => card.name.toLowerCase() === prediction.nome.toLowerCase()
+    )
+  )
 
   return (
-    <PredictionsStyled>
-      {search.length > 0 ? renderCards(filteredCards) : renderCards(cards)}
-    </PredictionsStyled>
+    <>
+      <PredictionsStyled>
+        {search.length > 0 ? renderCards(filteredCards) : renderCards(cards)}
+        {children}
+      </PredictionsStyled>
+    </>
   )
 }
 

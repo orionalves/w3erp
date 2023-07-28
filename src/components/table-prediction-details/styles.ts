@@ -16,5 +16,11 @@ export const TablePredictionDetailsStyled = styled.div`
       text-align: left;
       width: 40%;
     }
+    tr td:nth-child(2) {
+      text-align: left;
+    }
+    img:hover {
+      cursor: pointer;
+    }
   }
 `
