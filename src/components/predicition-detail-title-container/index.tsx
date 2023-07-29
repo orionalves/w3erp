@@ -26,14 +26,18 @@ const PredictionDetailTitleContainer = ({
         className="bold"
       />
       <div>
-        <div>
-          <img src={phone} alt="Ícone de telefone" />
-          <p>{phoneNumber}</p>
-        </div>
-        <div>
-          <img src={mail} alt="Ícone de carta" />
-          <p>{email}</p>
-        </div>
+        {phoneNumber != null && (
+          <div>
+            <img src={phone} alt="Ícone de telefone" />
+            <p>{phoneNumber}</p>
+          </div>
+        )}
+        {email != null && (
+          <div>
+            <img src={mail} alt="Ícone de carta" />
+            <p>{email}</p>
+          </div>
+        )}
       </div>
     </TitleContainer>
   )

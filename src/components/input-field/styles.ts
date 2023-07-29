@@ -4,7 +4,6 @@ import { color, fonts } from '@styles/constants'
 export const InputFieldStyled = styled.div`
   font-family: ${fonts.poppins};
   position: relative;
-  margin: 10px;
   label {
     position: absolute;
     top: -0.7rem;
@@ -15,11 +14,11 @@ export const InputFieldStyled = styled.div`
     padding: 0 0.2rem;
   }
   input {
+    width: 100%;
     border: 1px solid ${color.gray300};
     border-radius: 16px;
     padding: 1rem;
     font-size: 1rem;
-    width: 340px;
     color: ${color.gray700};
     &:focus,
     &:not(:placeholder-shown) {

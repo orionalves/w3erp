@@ -1,4 +1,3 @@
-import { GlobalStyle } from './styles/global-style'
 import { useContext, useEffect, useState } from 'react'
 import { LoginContext } from '@context/login-context'
 import { Outlet } from 'react-router-dom'
@@ -30,7 +29,6 @@ function App() {
 
   return (
     <>
-      <GlobalStyle />
       <Header name={data?.nome} email={data?.email} />
       <Sidebar />
       <Outlet />

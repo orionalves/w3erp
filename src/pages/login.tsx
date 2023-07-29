@@ -1,8 +1,7 @@
-import Button from '@components/button'
-import InputField from '@components/input-field'
 import { loginService } from '../services/login'
 import { ChangeEvent, MouseEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import LoginLayout from '@components/login-container'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -40,9 +39,7 @@ const Login = () => {
 
   return (
     <>
-      <InputField label="E-mail" type="text" onChange={handleChange} />
-      <InputField label="Senha" type="password" onChange={handleChange} />
-      <Button title="Entrar" onClick={handleLogin} />
+      <LoginLayout handleChange={handleChange} handleLogin={handleLogin} />
     </>
   )
 }

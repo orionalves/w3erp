@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { color, fonts } from '@styles/constants'
 
 export const ButtonStyled = styled.button`
+  width: 100%;
   border: none;
   display: flex;
   align-items: center;

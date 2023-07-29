@@ -47,7 +47,6 @@ const Pagination = ({
       numbers.push(
         <Numbers
           key={i}
-          // isactive={pageNumber === i}
           isactive={pageNumber === i ? 'true' : 'false'}
           onClick={() => handleNumberClick(i)}
         >
@@ -67,12 +66,6 @@ const Pagination = ({
         onClick={() => arrowDownHandleNumberClick()}
       />
       {renderNumbers()}
-      {/* <Numbers 
-      isactive={pageNumber === 0} 
-      onClick={() => 
-        handleNumberClick(0)}>
-        1
-      </Numbers>*/}
       <img
         src={right}
         alt="Seta para direita."
