@@ -32,7 +32,7 @@ const Login = () => {
       navigate('/home')
     } catch (event) {
       if (event instanceof Error) {
-        window.alert(event.message)
+        window.alert('Usuário ou senhas incorretos.')
       }
     }
   }

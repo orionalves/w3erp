@@ -9,7 +9,6 @@ type HeaderProps = {
   email: string
 }
 
-// const Header = ({ token }: TokenProps) => {
 const Header = ({ name, email }: Partial<HeaderProps>) => {
   const [balloon, setBalloon] = useState(false)
 

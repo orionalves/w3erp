@@ -36,7 +36,7 @@ const Predictions = () => {
         }
       } catch (event) {
         if (event instanceof Error) {
-          window.alert(event.message)
+          window.alert('Por favor, faça o login novamente.')
         }
       }
     }
