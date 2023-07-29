@@ -4,7 +4,8 @@ import api from './index'
 export const getProducts = async (
   token: string,
   search: string,
-  pageNumber: number
+  pageNumber: number,
+  classification: string
 ) => {
   try {
     api.defaults.headers.common['Authorization'] = `${
@@ -14,7 +15,8 @@ export const getProducts = async (
       import.meta.env.VITE_X_TENANT_ID
     }`
     const response = await api.get<ProductsApi>(
-      `app/produto?page=${pageNumber}&query=${search}&size=10&sort=id`
+      // eslint-disable-next-line max-len
+      `app/produto?classificacao=${classification}&page=${pageNumber}&query=${search}&size=10&sort=id`
     )
 
     return response.data

@@ -3,22 +3,18 @@ import Button from '@components/button'
 
 type FilterProps = {
   all?: number
-  up?: number
-  down?: number
-  checkUp: boolean
-  checkDown: boolean
-  setCheckUp: React.Dispatch<React.SetStateAction<boolean>>
-  setCheckDown: React.Dispatch<React.SetStateAction<boolean>>
+  setShow: React.Dispatch<React.SetStateAction<boolean>>
+  classification: '' | 'EM_BAIXA' | 'EM_ALTA'
+  setClassification: React.Dispatch<
+    React.SetStateAction<'' | 'EM_BAIXA' | 'EM_ALTA'>
+  >
 }
 
 const Filter = ({
   all,
-  up,
-  down,
-  checkUp,
-  checkDown,
-  setCheckUp,
-  setCheckDown
+  setShow,
+  classification,
+  setClassification
 }: FilterProps) => {
   return (
     <FilterStyled>
@@ -26,39 +22,43 @@ const Filter = ({
       <hr />
       <p>Status</p>
       {all !== undefined && (
-        <FilterChoose>
-          <input type="checkbox" id="all" name="filter" />
-          <label htmlFor="all">Todos</label>
-          <p>{all}</p>
-        </FilterChoose>
+        <>
+          <FilterChoose>
+            <input
+              type="checkbox"
+              checked={classification === ''}
+              onClick={() => setClassification('')}
+              id="all"
+              name="filter"
+            />
+            <label htmlFor="all">Todos</label>
+            {classification === '' && <p>{all}</p>}
+          </FilterChoose>
+          <FilterChoose>
+            <input
+              type="checkbox"
+              checked={classification === 'EM_ALTA'}
+              onClick={() => setClassification('EM_ALTA')}
+              id="up"
+              name="filter"
+            />
+            <label htmlFor="up">Em alta</label>
+            {classification === 'EM_ALTA' && <p>{all}</p>}
+          </FilterChoose>
+          <FilterChoose>
+            <input
+              type="checkbox"
+              checked={classification === 'EM_BAIXA'}
+              onClick={() => setClassification('EM_BAIXA')}
+              id="down"
+              name="filter"
+            />
+            <label htmlFor="down">Em baixa</label>
+            {classification === 'EM_BAIXA' && <p>{all}</p>}
+          </FilterChoose>
+        </>
       )}
-      {up !== undefined && (
-        <FilterChoose>
-          <input
-            type="checkbox"
-            checked={checkUp}
-            onChange={() => setCheckUp(!checkUp)}
-            id="up"
-            name="filter"
-          />
-          <label htmlFor="up">Em alta</label>
-          <p>{up}</p>
-        </FilterChoose>
-      )}
-      {down !== undefined && (
-        <FilterChoose>
-          <input
-            type="checkbox"
-            checked={checkDown}
-            onChange={() => setCheckDown(!checkDown)}
-            id="down"
-            name="filter"
-          />
-          <label htmlFor="down">Em baixa</label>
-          <p>{down}</p>
-        </FilterChoose>
-      )}
-      <Button title="Aplicar" />
+      <Button title="Aplicar" onClick={() => setShow(false)} />
     </FilterStyled>
   )
 }

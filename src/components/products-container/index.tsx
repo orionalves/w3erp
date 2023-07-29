@@ -15,6 +15,10 @@ type ProductsContainerProps = {
   onChange: React.Dispatch<React.SetStateAction<string>>
   pageNumber: number
   setPageNumber: React.Dispatch<React.SetStateAction<number>>
+  classification: '' | 'EM_BAIXA' | 'EM_ALTA'
+  setClassification: React.Dispatch<
+    React.SetStateAction<'' | 'EM_BAIXA' | 'EM_ALTA'>
+  >
 }
 
 const ProductsContainer = ({
@@ -22,20 +26,14 @@ const ProductsContainer = ({
   search,
   onChange,
   pageNumber,
-  setPageNumber
+  setPageNumber,
+  classification,
+  setClassification
 }: ProductsContainerProps) => {
   const [show, setShow] = useState(false)
-  const [upChecked, setUpChecked] = useState(false)
-  const [downChecked, setDownChecked] = useState(false)
   const productsNumberOfElements = products.numberOfElements
   const productsTotalElements = products.totalElements
   const productsTablePages = products.totalPages
-  const down = products.content?.filter(filter =>
-    filter.classificacao.includes('EM_BAIXA')
-  ).length
-  const up = products.content?.filter(filter =>
-    filter.classificacao.includes('EM_ALTA')
-  ).length
 
   const filteredProducts = products.content?.filter(filter =>
     filter.nome.toLowerCase().includes(search.toLowerCase())
@@ -52,12 +50,9 @@ const ProductsContainer = ({
         {show && (
           <Filter
             all={productsTotalElements}
-            down={down}
-            up={up}
-            checkUp={upChecked}
-            checkDown={downChecked}
-            setCheckUp={setUpChecked}
-            setCheckDown={setDownChecked}
+            setShow={setShow}
+            classification={classification}
+            setClassification={setClassification}
           />
         )}
       </div>

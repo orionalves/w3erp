@@ -11,6 +11,9 @@ const Products = () => {
   const [products, setProducts] = useState<Partial<ProductsApi>>({})
   const [search, setSearch] = useState('')
   const [pageNumber, setPageNumber] = useState(0)
+  const [classification, setClassification] = useState<
+    '' | 'EM_ALTA' | 'EM_BAIXA'
+  >('')
 
   useEffect(() => {
     if (!localStorageState) {
@@ -21,7 +24,8 @@ const Products = () => {
         const resultProducts = await getProducts(
           localStorageState,
           search,
-          pageNumber
+          pageNumber,
+          classification
         )
         setProducts(resultProducts)
       } catch (event) {
@@ -32,7 +36,7 @@ const Products = () => {
     }
 
     fetchApi()
-  }, [localStorageState, search, pageNumber])
+  }, [localStorageState, search, pageNumber, classification])
 
   useEffect(() => {
     setPageNumber(0)
@@ -46,6 +50,8 @@ const Products = () => {
         products={products}
         pageNumber={pageNumber}
         setPageNumber={setPageNumber}
+        classification={classification}
+        setClassification={setClassification}
       />
     </LayoutPage>
   )
