@@ -20,7 +20,7 @@ const TableContainerHeader = ({
 }: TableContainerHeaderProps) => {
   return (
     <TableContainerHeaderStyle>
-      <Title titleColor={titleColor}>
+      <Title titlecolor={titleColor}>
         <IconTitle color={color}>
           <img src={image} alt={alt} />
         </IconTitle>

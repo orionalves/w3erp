@@ -44,8 +44,6 @@ const Predictions = () => {
     fetchApi()
   }, [localStorageState, page])
 
-  // eslint-disable-next-line no-console
-  console.log(predictions)
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver(([entry]) => {
       const ratio = entry.intersectionRatio

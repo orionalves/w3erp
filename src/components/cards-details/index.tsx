@@ -21,7 +21,7 @@ const CardsDetails = ({ summary }: CardsDetailsOProps) => {
                 className={summary.percentualUltimos30Dias > 0 ? 'high' : 'low'}
               >
                 {summary?.percentualUltimos30Dias > 0 && '+'}
-                {summary?.percentualUltimos30Dias}
+                {summary?.percentualUltimos30Dias}%
               </Percent>
             </div>
           </Cards>

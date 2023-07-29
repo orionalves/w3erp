@@ -10,6 +10,8 @@ import {
   getProductCustomerSummary
 } from '@services/product-customer-details'
 import TableProductDetails from '@components/table-product- customer-details'
+import CardsDetails from '@components/cards-details'
+import HistoryBack from '@components/history-back'
 
 const ProductDetails = () => {
   const [downCustomer, setDownCustomer] = useState<ProductCustomerClient>([])
@@ -56,11 +58,13 @@ const ProductDetails = () => {
   return (
     <>
       <LayoutPage>
+        <HistoryBack title="Detalhamento" />
         <Title
           className="bold"
           title={summary !== undefined ? summary.nome : ''}
           color={color.primary}
         />
+        <CardsDetails summary={summary} />
         <LayoutDoubleTable>
           <TableProductDetails
             title="Produtos em baixa"

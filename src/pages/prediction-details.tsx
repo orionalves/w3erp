@@ -8,6 +8,7 @@ import { getPredictions } from '@services/predictions'
 import TablePredictionDetails from '@components/table-prediction-details'
 // eslint-disable-next-line max-len
 import PredictionDetailTitleContainer from '@components/predicition-detail-title-container'
+import HistoryBack from '@components/history-back'
 
 const PredictionDetails = () => {
   const [history, setHistory] = useState<PreditionDetailsItem[]>()
@@ -52,6 +53,7 @@ const PredictionDetails = () => {
   return (
     <>
       <LayoutPage>
+        <HistoryBack title="Predição" />
         <PredictionDetailTitleContainer
           title={predictions[0]?.nome}
           phoneNumber={predictions[0]?.telefone}

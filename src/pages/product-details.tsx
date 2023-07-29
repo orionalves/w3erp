@@ -11,6 +11,7 @@ import {
 } from '@services/product-customer-details'
 import TableProductDetails from '@components/table-product- customer-details'
 import CardsDetails from '@components/cards-details'
+import HistoryBack from '@components/history-back'
 
 const ProductDetails = () => {
   const [downProduct, setDownProduct] = useState<ProductCustomerClient>([])
@@ -57,6 +58,8 @@ const ProductDetails = () => {
   return (
     <>
       <LayoutPage>
+        <HistoryBack title="Detalhamento" />
+
         <Title
           className="bold"
           title={summary != null ? summary.nome : ''}
