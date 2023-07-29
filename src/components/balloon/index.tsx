@@ -1,17 +1,22 @@
 import { useContext } from 'react'
-import { BalloonStyled, Menu } from './styles'
+import { BalloonStyled, Menu, Triangle } from './styles'
 import setting from '@icons/setting.svg'
 import logout from '@icons/logout.svg'
 import { LoginContext } from '@context/login-context'
 
-const Balloon = () => {
+type BalloonProps = {
+  balloonRef?: React.RefObject<HTMLDivElement>
+}
+
+const Balloon = ({ balloonRef }: BalloonProps) => {
   const { setLocalStorageState } = useContext(LoginContext)
   const removeToken = () => {
     localStorage.removeItem('TOKEN')
     setLocalStorageState(null)
   }
   return (
-    <BalloonStyled>
+    <BalloonStyled ref={balloonRef}>
+      <Triangle />
       <Menu to="/configuration">
         <img src={setting} alt="Engrenagem." />
         <p>Configurações</p>

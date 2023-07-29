@@ -28,3 +28,14 @@ export const Menu = styled(Link)`
   gap: 0.75rem;
   padding: 1.4rem;
 `
+
+export const Triangle = styled.div`
+  position: absolute;
+  top: -0.8rem;
+  right: 5%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 16px 16px 16px;
+  border-color: transparent transparent ${color.white} transparent;
+`

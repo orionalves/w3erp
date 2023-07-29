@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { HeaderStyled } from './styles'
 import user from '@icons/user.svg'
 import chevronDown from '@icons/chevron-down.svg'
@@ -11,6 +11,26 @@ type HeaderProps = {
 
 const Header = ({ name, email }: Partial<HeaderProps>) => {
   const [balloon, setBalloon] = useState(false)
+  const balloonRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        balloonRef.current &&
+        !balloonRef.current.contains(event.target as Node)
+      ) {
+        setBalloon(false)
+      }
+    }
+
+    if (balloon) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [balloon])
 
   return (
     <HeaderStyled>
@@ -24,7 +44,7 @@ const Header = ({ name, email }: Partial<HeaderProps>) => {
         src={chevronDown}
         alt="Seta para baixo."
       />
-      {balloon && <Balloon />}
+      {balloon && <Balloon balloonRef={balloonRef} />}
     </HeaderStyled>
   )
 }
