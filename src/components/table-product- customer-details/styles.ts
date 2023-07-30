@@ -12,7 +12,8 @@ export const TableProductCustomerDetailsStyled = styled.div`
   border-radius: 24px;
   box-shadow: 0px 7px 30px 0px rgba(187, 192, 205, 0.4);
   table {
-    tr th:nth-child(2) {
+    tr th:nth-child(2),
+    tr td:nth-child(2) {
       text-align: left;
       width: 50%;
     }
